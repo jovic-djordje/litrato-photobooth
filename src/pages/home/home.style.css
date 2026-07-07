@@ -1,0 +1,115 @@
+.hero {
+  border-bottom: 2px solid #282828;
+}
+
+.hero-holder {
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+}
+
+.hero-left-side,
+.hero-right-side {
+  flex: 1 1 50%;
+  min-width: 0;
+  width: 100%;
+  max-width: 760px;
+}
+
+.hero-left-side {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 48px 32px;
+}
+
+.hero-left-text-holder {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  max-width: 590px;
+  text-align: center;
+}
+
+.hero-left-text-holder h3 {
+  font-family: "EB Garamond";
+  font-size: clamp(18px, 2vw, 24px);
+  font-style: italic;
+  text-transform: lowercase;
+  font-weight: 400;
+  margin-bottom: 4px;
+}
+
+.hero-left-text-holder h1 {
+  font-size: clamp(28px, 2.5vw, 40px);
+  text-transform: uppercase;
+  font-family: "Nanum Myeongjo";
+  font-weight: 600;
+  text-align: center;
+  max-width: 590px;
+  width: 100%;
+  line-height: 130%;
+  margin-top: 40px;
+}
+
+.first-hero-img {
+  width: 100%;
+  max-width: 324px;
+  height: auto;
+  border: 2px solid #282828;
+  display: block;
+}
+
+.hero-right-side {
+  display: flex;
+  overflow: hidden;
+}
+
+.second-hero-img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+.hero-btn {
+  font-family: "Space Mono";
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: transparent;
+  border: none;
+  gap: 12px;
+  text-transform: uppercase;
+  font-size: 16px;
+  margin-top: 24px;
+  color: inherit;
+}
+
+.btn-icon {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+}
+
+/* MEDIA SCREEN */
+@media screen and (max-width: 900px) {
+  .hero-right-side {
+    display: none;
+  }
+
+  .hero-holder {
+    width: 90%;
+    margin: 0px auto;
+  }
+
+  .hero-left-side {
+    padding: 45px 0px;
+  }
+
+  .hero-left-text-holder h1 {
+    margin-top: 32px;
+  }
+}
