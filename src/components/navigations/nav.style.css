@@ -1,5 +1,5 @@
 header {
-  border-bottom: 2px solid #000;
+  border-bottom: 2px solid #282828;
 }
 
 .nav-holder {
@@ -28,17 +28,18 @@ header {
 .nav-btn {
   max-width: 150px;
   width: 100%;
-  border: 2px solid #000;
+  border: 2px solid #282828;
   font-family: "Space Mono";
-  text-transform: capitalize;
+  text-transform: uppercase;
   padding: 8px 0px;
   background: transparent;
+  letter-spacing: 7%;
 }
 
 /* MEDIA QUERIES */
 @media screen and (max-width: 1280px) {
   .nav-holder {
-    width: 95%;
+    width: 90%;
     margin: 0px auto;
   }
 }
