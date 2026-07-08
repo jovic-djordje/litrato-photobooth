@@ -33,7 +33,7 @@
   text-align: center;
 }
 
-.hero-left-text-holder h3 {
+.hero-left-text-holder h4 {
   font-family: "EB Garamond";
   font-size: clamp(18px, 2vw, 24px);
   font-style: italic;
@@ -94,7 +94,105 @@
   flex-shrink: 0;
 }
 
+/* SERVICE SECTION */
+.service {
+  padding: 90px 0px;
+  border-bottom: 2px solid #282828;
+}
+
+.service-section-holder {
+  max-width: 1280px;
+  width: 100%;
+  margin: 0px auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 60px;
+}
+
+.service-text-holder {
+  max-width: 600px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.service-text-holder h4 {
+  font-family: "EB Garamond";
+  font-size: clamp(18px, 2vw, 24px);
+  font-style: italic;
+  text-transform: lowercase;
+  font-weight: 400;
+  margin-bottom: 4px;
+}
+
+.service-text-holder h2 {
+  font-size: clamp(28px, 2.5vw, 40px);
+  text-transform: uppercase;
+  font-family: "Nanum Myeongjo";
+  font-weight: 600;
+  line-height: 130%;
+}
+
+.service-text-holder p {
+  font-family: "Cormorant";
+  font-size: clamp(15px, 2vw, 18px);
+  margin-top: 20px;
+  line-height: 1.7;
+}
+
+.service-cards-holder {
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  width: 100%;
+}
+
+.service-card {
+  max-width: 430px;
+  width: 100%;
+}
+
+.service-card:nth-child(1) {
+  border-right: 1px solid #282828;
+}
+
+.service-card:nth-child(3) {
+  border-left: 1px solid #282828;
+}
+
+.service-card-width {
+  width: 85%;
+  margin: 0px auto;
+  text-align: center;
+}
+
+.service-icon {
+  width: 55px;
+  height: 55px;
+  margin-bottom: 16px;
+}
+
+.service-card-width h3 {
+  font-size: clamp(24px, 2vw, 28px);
+  text-transform: uppercase;
+  font-family: "Nanum Myeongjo";
+  font-weight: 600;
+  margin-bottom: 16px;
+}
+
+.service-card-width p {
+  font-family: "Cormorant";
+  font-size: clamp(14px, 2vw, 16px);
+  line-height: 1.5;
+}
+
 /* MEDIA SCREEN */
+
 @media screen and (max-width: 900px) {
   .hero-right-side {
     display: none;
@@ -109,7 +207,44 @@
     padding: 45px 0px;
   }
 
+  .service {
+    padding: 45px 0px;
+  }
+
   .hero-left-text-holder h1 {
     margin-top: 32px;
+  }
+}
+
+@media screen and (max-width: 786px) {
+  .service-section-holder {
+    width: 90%;
+    margin: 0px auto;
+    gap: 30px;
+  }
+
+  .service-cards-holder {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .service-card:nth-child(1) {
+    border-right: none;
+  }
+
+  .service-card:nth-child(3) {
+    border-left: none;
+  }
+
+  .service-card {
+    max-width: 520px;
+    border-bottom: 1px solid #282828;
+  }
+
+  .service-card-width {
+    width: 100%;
+    padding-top: 32px;
+    padding-bottom: 32px;
   }
 }
