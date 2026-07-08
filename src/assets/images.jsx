@@ -4,6 +4,7 @@ import heroOne from "./heroOne.webp";
 import serviceOne from "./serviceOne.png";
 import serviceTwo from "./serviceTwo.png";
 import serviceThree from "./serviceThree.png";
+import testimonial from "./testimonial.webp";
 
 const Logo = ({ className }) => {
   return <img src={logo} alt="logo" className={className} />;
@@ -31,4 +32,16 @@ const ServiceThree = ({ className }) => {
   return <img src={serviceThree} alt="gallery icon" className={className} />;
 };
 
-export { Logo, HeroTwo, HeroOne, ServiceOne, ServiceTwo, ServiceThree };
+const Testimonial = ({ className }) => {
+  return <img src={testimonial} alt="" className={className} />;
+};
+
+export {
+  Logo,
+  HeroTwo,
+  HeroOne,
+  ServiceOne,
+  ServiceTwo,
+  ServiceThree,
+  Testimonial,
+};

@@ -43,7 +43,7 @@
 }
 
 .hero-left-text-holder h1 {
-  font-size: clamp(28px, 2.5vw, 40px);
+  font-size: clamp(28px, 2vw, 40px);
   text-transform: uppercase;
   font-family: "Nanum Myeongjo";
   font-weight: 600;
@@ -131,7 +131,7 @@
 }
 
 .service-text-holder h2 {
-  font-size: clamp(28px, 2.5vw, 40px);
+  font-size: clamp(28px, 2vw, 40px);
   text-transform: uppercase;
   font-family: "Nanum Myeongjo";
   font-weight: 600;
@@ -178,7 +178,7 @@
 }
 
 .service-card-width h3 {
-  font-size: clamp(24px, 2vw, 28px);
+  font-size: clamp(20px, 2vw, 28px);
   text-transform: uppercase;
   font-family: "Nanum Myeongjo";
   font-weight: 600;
@@ -189,6 +189,134 @@
   font-family: "Cormorant";
   font-size: clamp(14px, 2vw, 16px);
   line-height: 1.5;
+}
+
+/* TESTIMONIAL SECTION */
+.test {
+  border-bottom: 2px solid #282828;
+}
+
+.test-holder {
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+}
+
+.test-left-side,
+.test-right-side {
+  flex: 1 1 50%;
+  min-width: 0;
+  width: 100%;
+  max-width: 760px;
+  padding: 90px 32px;
+}
+
+.test-left-side {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.test-right-side {
+  border-left: 2px solid #282828;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.test-text-holder {
+  width: 100%;
+  max-width: 520px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 520px;
+}
+
+.test-right-side-text {
+  width: 100%;
+  max-width: 360px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.test-img {
+  width: 100%;
+  max-width: 324px;
+  height: 432px;
+  border: 2px solid #282828;
+  display: block;
+}
+
+.headings {
+  width: 100%;
+}
+
+.headings h4 {
+  font-family: "EB Garamond";
+  font-size: clamp(18px, 2vw, 24px);
+  font-style: italic;
+  text-transform: lowercase;
+  font-weight: 400;
+  margin-bottom: 8px;
+}
+
+.headings h2 {
+  font-size: clamp(28px, 2vw, 40px);
+  text-transform: uppercase;
+  font-family: "Nanum Myeongjo";
+  font-weight: 600;
+  line-height: 130%;
+  margin-bottom: 32px;
+}
+
+.headings p {
+  font-family: "Cormorant";
+  font-size: clamp(15px, 2vw, 18px);
+  line-height: 1.6;
+  max-width: 520px;
+  text-indent: 40px;
+}
+
+.client-info {
+  width: 100%;
+  margin-top: 60px;
+}
+
+.client-info p {
+  font-family: "Cormorant";
+  font-size: clamp(28px, 2vw, 34px);
+  font-style: italic;
+  margin-bottom: 14px;
+}
+
+.test-btn-holder {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-family: "Space Mono";
+  letter-spacing: 7%;
+}
+
+.test-btn-holder button {
+  background: transparent;
+  border: none;
+  padding: 0;
+  font: inherit;
+  color: inherit;
+  text-transform: uppercase;
+}
+
+.test-right-side-text h4 {
+  font-family: "EB Garamond";
+  font-size: clamp(18px, 2vw, 24px);
+  font-style: italic;
+  text-transform: lowercase;
+  font-weight: 400;
+  margin-bottom: 4px;
 }
 
 /* MEDIA SCREEN */
@@ -213,6 +341,34 @@
 
   .hero-left-text-holder h1 {
     margin-top: 32px;
+  }
+
+  .test-holder {
+    flex-direction: column-reverse;
+  }
+
+  .test-left-side,
+  .test-right-side {
+    padding: 45px 0px;
+  }
+
+  .test-right-side {
+    border-left: none;
+    border-bottom: 2px solid #282828;
+  }
+
+  .test-text-holder {
+    max-width: 90%;
+    min-height: auto;
+    gap: 40px;
+  }
+
+  .test-right-side-text {
+    max-width: 324px;
+  }
+
+  .headings h2 {
+    margin-bottom: 24px;
   }
 }
 
