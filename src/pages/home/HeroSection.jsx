@@ -7,7 +7,7 @@ const HeroSection = () => {
       <div className="hero-holder">
         <div className="hero-left-side">
           <div className="hero-left-text-holder">
-            <h3>Elevated retro booth experience</h3>
+            <h4>Elevated retro booth experience</h4>
             <HeroTwo className="first-hero-img" />
             <h1>Turning moments into the dreamiest memories</h1>
             <button className="hero-btn">
