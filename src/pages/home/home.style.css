@@ -319,6 +319,73 @@
   margin-bottom: 4px;
 }
 
+/* LOGO SECTION */
+.logo-section {
+  overflow: hidden;
+  padding: 40px 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+  border-bottom: 2px solid #282828;
+}
+
+.logo-section h2 {
+  font-family: "Nanum Myeongjo";
+  font-weight: 600;
+  font-size: clamp(18px, 2vw, 20px);
+  text-transform: uppercase;
+}
+
+.logo-viewport {
+  width: 100%;
+  overflow: hidden;
+}
+
+.logo-holder {
+  display: flex;
+  align-items: center;
+  width: max-content;
+  animation: scroll-banner 60s linear infinite;
+}
+
+.banner-strip {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  flex-shrink: 0;
+  padding-right: 40px;
+}
+
+.banner-logo-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.banner-logo {
+  width: 50px;
+  display: block;
+  flex-shrink: 0;
+}
+
+.banner-logo-st {
+  width: 170px;
+  display: block;
+  flex-shrink: 0;
+}
+
+@keyframes scroll-banner {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(calc(-50% - 20px));
+  }
+}
+
 /* MEDIA SCREEN */
 
 @media screen and (max-width: 900px) {
@@ -402,5 +469,9 @@
     width: 100%;
     padding-top: 32px;
     padding-bottom: 32px;
+  }
+
+  .logo-section {
+    gap: 20px;
   }
 }
