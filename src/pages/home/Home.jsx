@@ -1,4 +1,5 @@
 import HeroSection from "./HeroSection";
+import LogoBanner from "./LogoBanner";
 import ServiceSection from "./ServiceSection";
 import TestSection from "./TestSection";
 
@@ -8,6 +9,7 @@ const Home = () => {
       <HeroSection />
       <ServiceSection />
       <TestSection />
+      <LogoBanner />
     </>
   );
 };

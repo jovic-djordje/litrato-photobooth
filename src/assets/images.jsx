@@ -5,6 +5,8 @@ import serviceOne from "./serviceOne.png";
 import serviceTwo from "./serviceTwo.png";
 import serviceThree from "./serviceThree.png";
 import testimonial from "./testimonial.webp";
+import logoOne from "./snowbunny.png";
+import logoTwo from "./St-Regis.png";
 
 const Logo = ({ className }) => {
   return <img src={logo} alt="logo" className={className} />;
@@ -36,6 +38,14 @@ const Testimonial = ({ className }) => {
   return <img src={testimonial} alt="" className={className} />;
 };
 
+const LogoOne = ({ className }) => {
+  return <img src={logoOne} alt="snowbunny logo" className={className} />;
+};
+
+const LogoTwo = ({ className }) => {
+  return <img src={logoTwo} alt="st-regis logo" className={className} />;
+};
+
 export {
   Logo,
   HeroTwo,
@@ -44,4 +54,6 @@ export {
   ServiceTwo,
   ServiceThree,
   Testimonial,
+  LogoOne,
+  LogoTwo,
 };
