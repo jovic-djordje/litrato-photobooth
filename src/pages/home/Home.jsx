@@ -1,3 +1,4 @@
+import BookingSection from "./BookingSection";
 import HeroSection from "./HeroSection";
 import LogoBanner from "./LogoBanner";
 import ServiceSection from "./ServiceSection";
@@ -10,6 +11,7 @@ const Home = () => {
       <ServiceSection />
       <TestSection />
       <LogoBanner />
+      <BookingSection />
     </>
   );
 };

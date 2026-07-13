@@ -27,7 +27,7 @@ const TestSection = () => {
 
         <div className="test-right-side">
           <div className="test-right-side-text">
-            <h4>moments worth keeping</h4>
+            {/*<h4>moments worth keeping</h4>*/}
             <Testimonial className="test-img" />
           </div>
         </div>
