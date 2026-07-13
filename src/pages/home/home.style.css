@@ -308,6 +308,7 @@
   font: inherit;
   color: inherit;
   text-transform: uppercase;
+  cursor: pointer;
 }
 
 .test-right-side-text h4 {
@@ -386,8 +387,63 @@
   }
 }
 
-/* MEDIA SCREEN */
+/* BOOKING SECTION */
+.booking-left-side {
+  border-right: 2px solid #282828 !important;
+  border-left: none !important;
+}
 
+.booking-text-holder h4 {
+  font-family: "Space Mono";
+  font-size: clamp(16px, 2vw, 24px);
+  text-transform: uppercase;
+  font-weight: 400;
+  margin-bottom: 4px;
+  margin-top: 20px;
+}
+
+.booking-text-holder h3 {
+  font-family: "EB Garamond";
+  font-size: clamp(24px, 2vw, 28px);
+  font-weight: 400;
+  font-style: italic;
+  margin-bottom: 28px;
+}
+
+.booking-text-holder p {
+  font-family: "Cormorant";
+  font-size: clamp(15px, 2vw, 18px);
+  line-height: 1.5;
+  text-indent: 40px;
+  max-width: 400px;
+  width: 100%;
+}
+
+.booking-text-holder button {
+  margin-top: 20px;
+  max-width: 200px;
+  width: 100%;
+  font-family: "Space Mono";
+  letter-spacing: 7%;
+  padding: 10px 0px;
+  border: 1px solid #282828;
+  background: transparent;
+  color: #282828;
+}
+
+.booking-btn-holder {
+  margin-top: auto;
+}
+
+.booking-btn {
+  display: none;
+}
+
+.booking-btn--active {
+  display: block;
+}
+
+/* MEDIA SCREEN */
 @media screen and (max-width: 900px) {
   .hero-right-side {
     display: none;
@@ -417,6 +473,7 @@
   .test-left-side,
   .test-right-side {
     padding: 45px 0px;
+    max-width: 900px;
   }
 
   .test-right-side {
@@ -436,6 +493,18 @@
 
   .headings h2 {
     margin-bottom: 24px;
+  }
+
+  .booking-section-holder {
+    flex-direction: column !important;
+  }
+
+  .booking-left-side {
+    border-right: none !important;
+  }
+
+  .booking-text-holder h4 {
+    margin-top: -20px;
   }
 }
 

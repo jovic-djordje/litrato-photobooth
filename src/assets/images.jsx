@@ -7,6 +7,7 @@ import serviceThree from "./serviceThree.png";
 import testimonial from "./testimonial.webp";
 import logoOne from "./snowbunny.png";
 import logoTwo from "./St-Regis.png";
+import bookingImg from "./booking.webp";
 
 const Logo = ({ className }) => {
   return <img src={logo} alt="logo" className={className} />;
@@ -46,6 +47,10 @@ const LogoTwo = ({ className }) => {
   return <img src={logoTwo} alt="st-regis logo" className={className} />;
 };
 
+const BookingImg = ({ className }) => {
+  return <img src={bookingImg} alt="" className={className} />;
+};
+
 export {
   Logo,
   HeroTwo,
@@ -56,4 +61,5 @@ export {
   Testimonial,
   LogoOne,
   LogoTwo,
+  BookingImg,
 };
