@@ -8,6 +8,12 @@ import testimonial from "./testimonial.webp";
 import logoOne from "./snowbunny.png";
 import logoTwo from "./St-Regis.png";
 import bookingImg from "./booking.webp";
+import footerOne from "./footerOne.webp";
+import footerTwo from "./footerTwo.webp";
+import footerThree from "./footerThree.webp";
+import footerFour from "./footerFour.webp";
+import footerFive from "./footerFive.webp";
+import footerSix from "./footerSix.webp";
 
 const Logo = ({ className }) => {
   return <img src={logo} alt="logo" className={className} />;
@@ -51,6 +57,30 @@ const BookingImg = ({ className }) => {
   return <img src={bookingImg} alt="" className={className} />;
 };
 
+const FooterOne = ({ className }) => {
+  return <img src={footerOne} alt="" className={className} />;
+};
+
+const FooterTwo = ({ className }) => {
+  return <img src={footerTwo} alt="" className={className} />;
+};
+
+const FooterThree = ({ className }) => {
+  return <img src={footerThree} alt="" className={className} />;
+};
+
+const FooterFour = ({ className }) => {
+  return <img src={footerFour} alt="" className={className} />;
+};
+
+const FooterFive = ({ className }) => {
+  return <img src={footerFive} alt="" className={className} />;
+};
+
+const FooterSix = ({ className }) => {
+  return <img src={footerSix} alt="" className={className} />;
+};
+
 export {
   Logo,
   HeroTwo,
@@ -62,4 +92,10 @@ export {
   LogoOne,
   LogoTwo,
   BookingImg,
+  FooterOne,
+  FooterTwo,
+  FooterThree,
+  FooterFour,
+  FooterFive,
+  FooterSix,
 };
