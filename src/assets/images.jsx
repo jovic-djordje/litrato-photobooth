@@ -14,6 +14,11 @@ import footerThree from "./footerThree.webp";
 import footerFour from "./footerFour.webp";
 import footerFive from "./footerFive.webp";
 import footerSix from "./footerSix.webp";
+import galleryOne from "./galleryOne.webp";
+import galleryTwo from "./galleryTwo.webp";
+import galleryThree from "./galleryThree.webp";
+import galleryFour from "./galleryFour.webp";
+import galleryBooking from "./galleryBooking.webp";
 
 const Logo = ({ className }) => {
   return <img src={logo} alt="logo" className={className} />;
@@ -81,6 +86,26 @@ const FooterSix = ({ className }) => {
   return <img src={footerSix} alt="" className={className} />;
 };
 
+const GalleryOne = ({ className }) => {
+  return <img src={galleryOne} alt="" className={className} />;
+};
+
+const GalleryTwo = ({ className }) => {
+  return <img src={galleryTwo} alt="" className={className} />;
+};
+
+const GalleryThree = ({ className }) => {
+  return <img src={galleryThree} alt="" className={className} />;
+};
+
+const GalleryFour = ({ className }) => {
+  return <img src={galleryFour} alt="" className={className} />;
+};
+
+const GalleryBooking = ({ className }) => {
+  return <img src={galleryBooking} alt="" className={className} />;
+};
+
 export {
   Logo,
   HeroTwo,
@@ -98,4 +123,9 @@ export {
   FooterFour,
   FooterFive,
   FooterSix,
+  GalleryOne,
+  GalleryTwo,
+  GalleryThree,
+  GalleryFour,
+  GalleryBooking,
 };

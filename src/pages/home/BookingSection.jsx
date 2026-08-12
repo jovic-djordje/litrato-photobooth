@@ -23,7 +23,7 @@ const steps = [
   },
 ];
 
-const BookingSection = () => {
+const BookingSection = ({ imageComponent: ImageComponent = BookingImg }) => {
   const [activeId, setActiveId] = useState(1);
   const active = steps.find((s) => s.id === activeId);
 
@@ -33,7 +33,7 @@ const BookingSection = () => {
         <div className="test-right-side booking-left-side">
           <div className="test-right-side-text">
             {/*<h4>setting the scene</h4> */}
-            <BookingImg className="test-img" />
+            <ImageComponent className="test-img" />
           </div>
         </div>
 

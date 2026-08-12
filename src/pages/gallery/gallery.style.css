@@ -1,0 +1,128 @@
+/* GALLERY */
+.gallery {
+  border-bottom: 2px solid #282828;
+  padding: 90px 0px;
+}
+
+.gallery-holder {
+  max-width: 1280px;
+  width: 100%;
+  margin: 0px auto;
+}
+
+.gallery-text-holder {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 48px;
+}
+
+.gallery-section-title {
+  font-size: clamp(28px, 2vw, 40px);
+  text-transform: uppercase;
+  font-family: "Nanum Myeongjo";
+  font-weight: 600;
+  text-align: center;
+  max-width: 590px;
+  width: 100%;
+  line-height: 130%;
+}
+
+.gallery-section-text {
+  font-family: "Cormorant";
+  font-size: clamp(15px, 2vw, 18px);
+  margin-top: 20px;
+  line-height: 1.7;
+  max-width: 500px;
+  width: 100%;
+  text-align: center;
+}
+
+.gallery-section-holder {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  align-items: center;
+  justify-content: center;
+  gap: 77px;
+}
+
+.gallery-cart-holder {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 4px;
+}
+
+.gallery-img {
+  border: 2px solid #282828;
+}
+
+.gallery-cart-text-holder {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.gallery-cart-text-holder span {
+  font-family: "EB Garamond";
+  font-size: 20px;
+  font-style: italic;
+  text-transform: uppercase;
+}
+
+@media screen and (max-width: 1280px) {
+  .gallery-holder {
+    width: 90%;
+    margin: 0px auto;
+  }
+
+  .gallery-section-holder {
+    gap: 40px;
+  }
+
+  .gallery-cart-holder {
+    max-width: 350px;
+  }
+
+  .gallery-img {
+    max-width: 350px;
+    width: 100%;
+  }
+
+  .gallery-cart-text-holder span {
+    font-size: 16px;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .gallery-cart-text-holder span {
+    font-size: 13px;
+  }
+
+  .gallery-section-holder {
+    gap: 30px;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .gallery-section-holder {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .gallery-text-holder {
+    padding-top: 0px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .gallery-cart-text-holder span {
+    font-size: 10px;
+  }
+
+  .gallery-section-holder {
+    gap: 20px;
+  }
+}
