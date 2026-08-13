@@ -1,0 +1,36 @@
+/* SERVICE HERO SECTION */
+.service-hero-img {
+  object-fit: cover;
+}
+
+.service-hero-text-holder {
+  min-height: 0px;
+}
+
+.service-hero-headings h1 {
+  font-size: clamp(28px, 2vw, 40px);
+  text-transform: uppercase;
+  font-family: "Nanum Myeongjo";
+  font-weight: 600;
+  max-width: 590px;
+  width: 100%;
+  line-height: 130%;
+  margin-bottom: 32px;
+}
+
+.service-hero-headings h3 {
+  font-family: "EB Garamond";
+  font-size: clamp(24px, 2vw, 28px);
+  font-weight: 400;
+  font-style: italic;
+  margin-bottom: 28px;
+}
+
+.service-hero-headings p {
+  font-family: "Cormorant";
+  font-size: clamp(15px, 2vw, 18px);
+  line-height: 1.5;
+  text-indent: 40px;
+  max-width: 500px;
+  width: 100%;
+}

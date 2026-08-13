@@ -19,6 +19,7 @@ import galleryTwo from "./galleryTwo.webp";
 import galleryThree from "./galleryThree.webp";
 import galleryFour from "./galleryFour.webp";
 import galleryBooking from "./galleryBooking.webp";
+import serviceHeroImg from "./serviceHero.webp";
 
 const Logo = ({ className }) => {
   return <img src={logo} alt="logo" className={className} />;
@@ -106,6 +107,10 @@ const GalleryBooking = ({ className }) => {
   return <img src={galleryBooking} alt="" className={className} />;
 };
 
+const ServiceHeroImg = ({ className }) => {
+  return <img src={serviceHeroImg} alt="" className={className} />;
+};
+
 export {
   Logo,
   HeroTwo,
@@ -128,4 +133,5 @@ export {
   GalleryThree,
   GalleryFour,
   GalleryBooking,
+  ServiceHeroImg,
 };
