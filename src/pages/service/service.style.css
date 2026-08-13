@@ -34,3 +34,192 @@
   max-width: 500px;
   width: 100%;
 }
+
+/* PACKAGES SECTION */
+
+.packages-section {
+  padding: 90px 0px;
+  border-bottom: 2px solid #282828;
+}
+
+.packages-section-holder {
+  max-width: 1280px;
+  width: 100%;
+  margin: 0px auto;
+}
+
+/*.packages-cart-holder {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+}*/
+
+.packages-cart-holder {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+  padding-bottom: 20vh;
+  overflow: visible;
+}
+
+/*.service-cart {
+  max-width: 940px;
+  width: 100%;
+  border: 2px solid #282828;
+  padding: 40px 0px;
+}*/
+
+.service-cart {
+  position: sticky;
+  max-width: 940px;
+  width: 100%;
+  min-height: 390px;
+  padding: 40px 0;
+  border: 2px solid #282828;
+  background-color: #f6f6f3;
+  box-shadow: 0 12px 30px rgba(40, 40, 40, 0.08);
+  isolation: isolate;
+  transition:
+    transform 0.4s ease,
+    box-shadow 0.4s ease;
+}
+
+.service-cart:nth-child(1) {
+  top: 100px;
+  z-index: 1;
+  transform: rotate(-1deg);
+}
+
+.service-cart:nth-child(2) {
+  top: 120px;
+  z-index: 2;
+  transform: rotate(0.5deg);
+}
+
+.service-cart:nth-child(3) {
+  top: 140px;
+  z-index: 3;
+  transform: rotate(-0.5deg);
+}
+
+.service-cart:nth-child(4) {
+  top: 160px;
+  z-index: 4;
+  transform: rotate(1deg);
+}
+
+.service-cart:not(:last-child) {
+  margin-bottom: 8vh;
+}
+
+.service-cart-width {
+  width: 90%;
+  margin: 0px auto;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 48px;
+}
+
+.service-cart-img {
+  max-width: 219px;
+  width: 100%;
+  border: 2px solid #282828;
+  min-height: 292px;
+  height: 100%;
+}
+
+.service-cart-title {
+  font-size: clamp(18px, 2vw, 22px);
+  text-transform: uppercase;
+  font-family: "Nanum Myeongjo";
+  font-weight: 600;
+  color: #282828;
+  margin-bottom: 4px;
+}
+
+.service-cart-rate {
+  font-family: "EB Garamond";
+  font-style: italic;
+  color: #282828;
+  font-size: clamp(15px, 2vw, 18px);
+}
+
+.service-cart-text {
+  font-size: clamp(14px, 2vw, 16px);
+  font-family: "Cormorant";
+  color: #282828;
+  line-height: 1.5;
+  margin: 16px 0px;
+}
+
+.service-cart-points-holder {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 8px;
+  color: #282828;
+}
+
+.service-cart-points {
+  font-family: "Cormorant";
+  font-size: clamp(14px, 2vw, 16px);
+  margin-left: 16px;
+}
+
+@media screen and (max-width: 1280px) {
+  .packages-section-holder {
+    width: 90%;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .packages-section {
+    padding: 45px 0px;
+  }
+
+  .service-cart-width {
+    flex-direction: column;
+  }
+
+  .service-cart-img {
+    min-height: 0px;
+  }
+
+  .service-cart {
+    position: relative;
+    top: auto !important;
+    min-height: auto;
+    margin-bottom: 32px !important;
+  }
+
+  .service-cart-width {
+    flex-direction: column;
+    gap: 28px;
+  }
+
+  .packages-cart-holder {
+    padding-bottom: 0;
+  }
+
+  .service-cart:nth-child(1) {
+    transform: rotate(0deg);
+  }
+
+  .service-cart:nth-child(2) {
+    transform: rotate(0deg);
+  }
+
+  .service-cart:nth-child(3) {
+    transform: rotate(0deg);
+  }
+
+  .service-cart:nth-child(4) {
+    transform: rotate(0deg);
+  }
+}

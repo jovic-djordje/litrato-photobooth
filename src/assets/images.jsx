@@ -20,6 +20,10 @@ import galleryThree from "./galleryThree.webp";
 import galleryFour from "./galleryFour.webp";
 import galleryBooking from "./galleryBooking.webp";
 import serviceHeroImg from "./serviceHero.webp";
+import serviceOneImg from "./serviceOne.webp";
+import serviceTwoImg from "./serviceTwo.webp";
+import serviceThreeImg from "./serviceThree.webp";
+import serviceFourImg from "./serviceFour.webp";
 
 const Logo = ({ className }) => {
   return <img src={logo} alt="logo" className={className} />;
@@ -111,6 +115,22 @@ const ServiceHeroImg = ({ className }) => {
   return <img src={serviceHeroImg} alt="" className={className} />;
 };
 
+const ServiceOneImg = ({ className }) => {
+  return <img src={serviceOneImg} alt="" className={className} />;
+};
+
+const ServiceTwoImg = ({ className }) => {
+  return <img src={serviceTwoImg} alt="" className={className} />;
+};
+
+const ServiceThreeImg = ({ className }) => {
+  return <img src={serviceThreeImg} alt="" className={className} />;
+};
+
+const ServiceFourImg = ({ className }) => {
+  return <img src={serviceFourImg} alt="" className={className} />;
+};
+
 export {
   Logo,
   HeroTwo,
@@ -134,4 +154,8 @@ export {
   GalleryFour,
   GalleryBooking,
   ServiceHeroImg,
+  ServiceOneImg,
+  ServiceTwoImg,
+  ServiceThreeImg,
+  ServiceFourImg,
 };
