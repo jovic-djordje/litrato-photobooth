@@ -4,6 +4,7 @@ import Home from "./pages/home/Home";
 import Footer from "./components/navigations/Footer";
 import HomeService from "./pages/service/HomeService";
 import HomeGallery from "./pages/gallery/HomeGallery";
+import HomeContact from "./pages/contact/HomeContact";
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/service" element={<HomeService />} />
         <Route path="/gallery" element={<HomeGallery />} />
+        <Route path="/contact" element={<HomeContact />} />
       </Routes>
       <Footer />
     </Router>
