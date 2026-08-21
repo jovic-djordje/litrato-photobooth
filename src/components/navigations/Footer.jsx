@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import {
   FooterFive,
   FooterFour,
@@ -31,9 +32,9 @@ const Footer = () => {
       <div className="footer-holder">
         <div className="footer-text-holder">
           <div className="footer-text-left-side">
-            <a href="/" className="link" aria-label="Go to homepage">
+            <Link to="/" className="link" aria-label="Go to homepage">
               <Logo className="logo" />
-            </a>
+            </Link>
 
             <p>
               SERVING ASPEN - SNOWMASS - BASALT - VAIL AND NEARBY COLORADO TOWNS
@@ -46,21 +47,21 @@ const Footer = () => {
                 <li className="footer-nav-title">Navigate</li>
 
                 <li>
-                  <a href="/services" className="link">
+                  <Link to="/service" className="link">
                     SERVICES
-                  </a>
+                  </Link>
                 </li>
 
                 <li>
-                  <a href="/gallery" className="link">
+                  <Link to="/gallery" className="link">
                     GALLERY
-                  </a>
+                  </Link>
                 </li>
 
                 <li>
-                  <a href="/contact" className="link">
+                  <Link to="/contact" className="link">
                     CONTACT
-                  </a>
+                  </Link>
                 </li>
               </ul>
             </nav>
@@ -108,18 +109,18 @@ const Footer = () => {
           <p>© 2026 Litrato. All rights reserved.</p>
 
           <div className="links">
-            <a href="/terms" className="link">
+            <Link to="/terms" className="link">
               TERMS &amp; PRIVACY
-            </a>
+            </Link>
 
-            <a
-              href="https://jovicweb.dev/"
+            <Link
+              to="https://jovicweb.dev/"
               className="link"
               target="_blank"
               rel="noopener noreferrer"
             >
               CREDIT
-            </a>
+            </Link>
 
             <button type="button" className="back-to-top" onClick={scrollToTop}>
               BACK TO TOP

@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import { BookingImg } from "../../assets/images";
 
 const steps = [
@@ -13,13 +14,13 @@ const steps = [
     id: 2,
     step: "step 02.",
     title: "Customize Your Experience",
-    text: "As your event gets closer, we’ll send over a short questionnaire so you can choose your photo layout, backdrop, and the overall feel of your booth experience. This is where we make everything feel personal and tailored to your celebration.",
+    text: "As your event gets closer, we'll send over a short questionnaire so you can choose your photo layout, backdrop, and the overall feel of your booth experience. This is where we make everything feel personal and tailored to your celebration.",
   },
   {
     id: 3,
     step: "step 03.",
     title: "Show Up & Enjoy",
-    text: "On the day of your event, we’ll take care of everything from setup to the full booth experience. All you have to do is enjoy the moment, step in for photos, and have fun with your guests.",
+    text: "On the day of your event, we'll take care of everything from setup to the full booth experience. All you have to do is enjoy the moment, step in for photos, and have fun with your guests.",
   },
 ];
 
@@ -48,14 +49,14 @@ const BookingSection = ({ imageComponent: ImageComponent = BookingImg }) => {
               <h4>{active.step}</h4>
               <h3>{active.title}</h3>
               <p>{active.text}</p>
-              <a href="/contact" className="link">
+              <Link to="/contact" className="link">
                 <button
                   key={active.id}
                   className={`booking-btn ${activeId === 1 ? "booking-btn--active" : ""}`}
                 >
                   {active.btn}
                 </button>
-              </a>
+              </Link>
             </div>
 
             <div className="test-btn-holder booking-btn-holder">

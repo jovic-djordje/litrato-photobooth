@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import { Logo } from "../../assets/images";
 import { Squeeze as Hamburger } from "hamburger-react";
 import "./nav.style.css";
@@ -34,9 +35,9 @@ const Navigation = () => {
           </div>
         </div>
 
-        <a href="/" className="link">
+        <Link to="/" className="link">
           <Logo className="logo" />
-        </a>
+        </Link>
 
         <button type="button" className="nav-btn">
           Leave review
@@ -48,21 +49,21 @@ const Navigation = () => {
         aria-hidden={!isOpen}
       >
         <div className="mobile-nav-content">
-          <a href="/" onClick={closeMenu}>
+          <Link to="/" onClick={closeMenu}>
             Home
-          </a>
+          </Link>
 
-          <a href="/service" onClick={closeMenu}>
+          <Link to="/service" onClick={closeMenu}>
             Services
-          </a>
+          </Link>
 
-          <a href="/gallery" onClick={closeMenu}>
+          <Link to="/gallery" onClick={closeMenu}>
             Gallery
-          </a>
+          </Link>
 
-          <a href="/contact" onClick={closeMenu}>
+          <Link to="/contact" onClick={closeMenu}>
             Contact
-          </a>
+          </Link>
 
           <button type="button" className="nav-btn nav-btn-mobile">
             Leave review
@@ -70,11 +71,19 @@ const Navigation = () => {
         </div>
 
         <div className="mobile-nav-bottom">
-          <a href="https://www.instagram.com/litratoco_/" target="_blank">
+          <a
+            href="https://www.instagram.com/litratoco_/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             Instagram
           </a>
 
-          <a href="mailto:samantha@litratoco.com" target="_blank">
+          <a
+            href="mailto:samantha@litratoco.com"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             Email
           </a>
 

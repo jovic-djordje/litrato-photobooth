@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { HeroOne, HeroTwo } from "../../assets/images";
 import "./home.style.css";
 
@@ -10,7 +11,7 @@ const HeroSection = () => {
             <h4>Elevated retro booth experience</h4>
             <HeroTwo className="first-hero-img" />
             <h1>Turning moments into the dreamiest memories</h1>
-            <a href="/contact" className="link">
+            <Link to="/contact" className="link">
               <button className="hero-btn">
                 Book Your Date{" "}
                 <svg
@@ -29,7 +30,7 @@ const HeroSection = () => {
                   <path d="m12 5 7 7-7 7" />
                 </svg>
               </button>
-            </a>
+            </Link>
           </div>
         </div>
         <div className="hero-right-side">

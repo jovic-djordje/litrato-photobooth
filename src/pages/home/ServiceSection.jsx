@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { ServiceOne, ServiceThree, ServiceTwo } from "../../assets/images";
 
 const ServiceSection = () => {
@@ -45,7 +46,7 @@ const ServiceSection = () => {
             </div>
           ))}
         </div>
-        <a href="/service" className="link">
+        <Link to="/service" className="link">
           <button className="hero-btn">
             View Packages{" "}
             <svg
@@ -64,7 +65,7 @@ const ServiceSection = () => {
               <path d="m12 5 7 7-7 7" />
             </svg>
           </button>
-        </a>
+        </Link>
       </div>
     </section>
   );
