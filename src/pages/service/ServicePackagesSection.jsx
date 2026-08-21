@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import {
   ServiceFourImg,
   ServiceOneImg,
@@ -72,7 +73,7 @@ const ServicePackagesSection = () => {
                     <li className="service-cart-points">{cart.pointTwo}</li>
                     <li className="service-cart-points">{cart.pointThree}</li>
                   </ul>
-                  <a href="/contact" className="link">
+                  <Link to="/contact" className="link">
                     <button className="hero-btn">
                       {cart.btn}{" "}
                       <svg
@@ -91,7 +92,7 @@ const ServicePackagesSection = () => {
                         <path d="m12 5 7 7-7 7" />
                       </svg>
                     </button>
-                  </a>
+                  </Link>
                 </div>
               </div>
             </div>
