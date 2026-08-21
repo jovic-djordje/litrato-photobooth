@@ -18,47 +18,112 @@ const images = [
 ];
 
 const Footer = () => {
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: "smooth",
+    });
+  };
+
   return (
     <footer>
       <div className="footer-holder">
         <div className="footer-text-holder">
           <div className="footer-text-left-side">
-            <Logo className="logo" />
+            <a href="/" className="link" aria-label="Go to homepage">
+              <Logo className="logo" />
+            </a>
+
             <p>
-              SERVING ASPEN - SNOWMASS - BASALT VAIL AND NEARBY COLORADO TOWNS
+              SERVING ASPEN - SNOWMASS - BASALT - VAIL AND NEARBY COLORADO TOWNS
             </p>
           </div>
 
           <div className="footer-text-right-side">
-            <ul className="footer-nav">
-              <li className="footer-nav-title">Navigate</li>
-              <li>SERVICES</li>
-              <li>GALLERY</li>
-              <li>CONTACT</li>
-            </ul>
+            <nav aria-label="Footer navigation">
+              <ul className="footer-nav">
+                <li className="footer-nav-title">Navigate</li>
 
-            <ul className="footer-nav">
-              <li className="footer-nav-title">Connect</li>
-              <li>Instagram</li>
-              <li>Phone</li>
-              <li>Email</li>
-            </ul>
+                <li>
+                  <a href="/services" className="link">
+                    SERVICES
+                  </a>
+                </li>
+
+                <li>
+                  <a href="/gallery" className="link">
+                    GALLERY
+                  </a>
+                </li>
+
+                <li>
+                  <a href="/contact" className="link">
+                    CONTACT
+                  </a>
+                </li>
+              </ul>
+            </nav>
+
+            <nav aria-label="Contact links">
+              <ul className="footer-nav">
+                <li className="footer-nav-title">Connect</li>
+
+                <li>
+                  <a
+                    href="https://www.instagram.com/litratoco_/"
+                    className="link"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    INSTAGRAM
+                  </a>
+                </li>
+
+                <li>
+                  <a href="tel:+9709307157" className="link">
+                    PHONE
+                  </a>
+                </li>
+
+                <li>
+                  <a href="mailto:samantha@litratoco.com" className="link">
+                    EMAIL
+                  </a>
+                </li>
+              </ul>
+            </nav>
           </div>
         </div>
 
         <div className="footer-img-holder">
-          {images.map((img) => (
-            <div key={img.id} className="img-holder">
-              {img.img}
+          {images.map((image) => (
+            <div key={image.id} className="img-holder">
+              {image.img}
             </div>
           ))}
         </div>
+
         <div className="copy">
-          <p>© 2026 Litrato.All rights reserved.</p>
+          <p>© 2026 Litrato. All rights reserved.</p>
+
           <div className="links">
-            <p>TERMS & PRIVACY</p>
-            <p>CREDIT</p>
-            <p>BACK TO TOP</p>
+            <a href="/terms" className="link">
+              TERMS &amp; PRIVACY
+            </a>
+
+            <a
+              href="https://jovicweb.dev/"
+              className="link"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              CREDIT
+            </a>
+
+            <button type="button" className="back-to-top" onClick={scrollToTop}>
+              BACK TO TOP
+            </button>
           </div>
         </div>
       </div>

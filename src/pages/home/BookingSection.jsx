@@ -48,12 +48,14 @@ const BookingSection = ({ imageComponent: ImageComponent = BookingImg }) => {
               <h4>{active.step}</h4>
               <h3>{active.title}</h3>
               <p>{active.text}</p>
-              <button
-                key={active.id}
-                className={`booking-btn ${activeId === 1 ? "booking-btn--active" : ""}`}
-              >
-                {active.btn}
-              </button>
+              <a href="/contact" className="link">
+                <button
+                  key={active.id}
+                  className={`booking-btn ${activeId === 1 ? "booking-btn--active" : ""}`}
+                >
+                  {active.btn}
+                </button>
+              </a>
             </div>
 
             <div className="test-btn-holder booking-btn-holder">
