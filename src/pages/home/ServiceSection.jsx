@@ -5,20 +5,20 @@ const ServiceSection = () => {
     {
       id: 1,
       icon: <ServiceOne className="service-icon" />,
-      title: "Essential",
-      text: "Perfect for intimate celebrations and simpler event setups, Package 1 offers a stylish digital-first photobooth experience that feels effortless from start to finish. It’s a great fit for hosts who want the magic of the booth in a more streamlined format",
+      title: "Package 1",
+      text: "Perfect for shorter celebrations and simpler event setups, Package 1 offers 3 hours of booth coverage with unlimited prints, online gallery access, a custom welcome screen, your choice of backdrop, curated props, and on-site support.",
     },
     {
       id: 2,
       icon: <ServiceTwo className="service-icon" />,
-      title: "Signature",
-      text: "Designed for events that want a little more, more detail, more guest interaction, and more keepsakes to take home. With prints and custom touches, it creates an experience that feels both polished and memorable",
+      title: "Package 2",
+      text: "Designed for weddings, parties, and celebrations that want a little more. Package 2 includes 4 hours of booth coverage, unlimited prints, online gallery access, a custom welcome screen, your choice of backdrop, curated props, and on-site support.",
     },
     {
       id: 3,
       icon: <ServiceThree className="service-icon" />,
-      title: "Luxe",
-      text: "Most complete experience, created for celebrations where every detail matters. With added customization and thoughtful extras, it’s ideal for events that want the fullest version of the Litrato experience.",
+      title: "Package 3",
+      text: "Our most complete experience, created for celebrations where every detail matters. Package 3 includes 5 hours of booth coverage, unlimited prints, custom booth styling, backdrop choice, a photo guest book, curated props, online gallery access, and on-site support.",
     },
   ];
 
@@ -45,24 +45,26 @@ const ServiceSection = () => {
             </div>
           ))}
         </div>
-        <button className="hero-btn">
-          View Packages{" "}
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            className="lucide lucide-arrow-right-icon lucide-arrow-right btn-icon"
-          >
-            <path d="M5 12h14" />
-            <path d="m12 5 7 7-7 7" />
-          </svg>
-        </button>
+        <a href="/service" className="link">
+          <button className="hero-btn">
+            View Packages{" "}
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              className="lucide lucide-arrow-right-icon lucide-arrow-right btn-icon"
+            >
+              <path d="M5 12h14" />
+              <path d="m12 5 7 7-7 7" />
+            </svg>
+          </button>
+        </a>
       </div>
     </section>
   );

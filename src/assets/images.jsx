@@ -1,4 +1,5 @@
 import logo from "./logo.png";
+import menuIcon from "./main-menu.png";
 import heroTwo from "./heroTwo.webp";
 import heroOne from "./heroOne.webp";
 import serviceOne from "./serviceOne.png";
@@ -27,6 +28,10 @@ import serviceFourImg from "./serviceFour.webp";
 
 const Logo = ({ className }) => {
   return <img src={logo} alt="logo" className={className} />;
+};
+
+const MenuIcon = ({ className }) => {
+  return <img src={menuIcon} alt="" className={className} />;
 };
 
 const HeroTwo = ({ className }) => {
@@ -133,6 +138,7 @@ const ServiceFourImg = ({ className }) => {
 
 export {
   Logo,
+  MenuIcon,
   HeroTwo,
   HeroOne,
   ServiceOne,

@@ -86,12 +86,24 @@
   font-size: 16px;
   margin-top: 24px;
   color: inherit;
+  cursor: pointer;
+}
+
+.hero-btn:hover .btn-icon {
+  transform: rotate(0deg);
 }
 
 .btn-icon {
   width: 20px;
   height: 20px;
   flex-shrink: 0;
+  transform: rotate(-45deg);
+  transition: all 0.2s ease-in;
+}
+
+.link {
+  text-decoration: none;
+  color: #282828;
 }
 
 /* SERVICE SECTION */
@@ -441,6 +453,15 @@
 
 .booking-btn--active {
   display: block;
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease;
+  cursor: pointer;
+}
+
+.booking-btn--active:hover {
+  background-color: #282828;
+  color: #f5f1eb;
 }
 
 /* MEDIA SCREEN */
