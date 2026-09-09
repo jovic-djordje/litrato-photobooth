@@ -73,6 +73,197 @@
   text-transform: uppercase;
 }
 
+/* Kontejner oko same slike - drži overlay samo preko slike */
+.gallery-img-wrapper {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  overflow: hidden;
+}
+
+.gallery-img-wrapper .gallery-img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  object-position: center;
+  transition: transform 0.3s ease;
+}
+
+/* Hover efekat na sliku */
+.gallery-img-wrapper:hover .gallery-img {
+  transform: scale(1.02);
+}
+
+/* 
+  1. HOVER OVERLAY (prikazuje se na prelazak mišem) 
+*/
+.gallery-img-wrapper::after {
+  content: "CLICK TO UNLOCK";
+  position: absolute;
+  inset: 0;
+  background: rgba(40, 40, 40, 0.7); /* Litrato #282828 sa prozirnošću */
+  color: #f5f1eb;
+  font-family: "Space Mono", monospace;
+  font-size: 13px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none; /* Ne ometa klik na sliku */
+  transition: opacity 0.25s ease;
+  z-index: 5;
+}
+
+.gallery-img-wrapper:hover::after {
+  opacity: 1;
+}
+
+/* Sakrij hover tekst ako je polje za unos šifre već aktivno (otvoreno na klik) */
+.gallery-img-wrapper:has(.gallery-passcode-overlay)::after {
+  display: none;
+}
+
+/* 
+  2. ACTIVE PASSCODE OVERLAY (prikazuje se na klik za unos šifre) 
+*/
+.gallery-passcode-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(40, 40, 40, 0.94); /* #282828 */
+  backdrop-filter: blur(2px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 20px;
+  z-index: 10;
+  animation: fadeIn 0.2s ease-in;
+}
+
+/* Naslov unutar overlay-a */
+.gallery-overlay-title {
+  font-family: "EB Garamond", serif;
+  font-style: italic;
+  font-size: clamp(16px, 1.8vw, 20px);
+  color: #f5f1eb;
+  font-weight: 400;
+  margin-bottom: 4px;
+}
+
+/* Input za šifru */
+.gallery-passcode-input {
+  width: 85%;
+  max-width: 240px;
+  padding: 10px 12px;
+  background: transparent;
+  border: 1px solid #f5f1eb;
+  color: #f5f1eb;
+  font-family: "Space Mono", monospace;
+  font-size: 14px;
+  text-align: center;
+  letter-spacing: 2px;
+  outline: none;
+  transition: all 0.2s ease;
+}
+
+.gallery-passcode-input::placeholder {
+  color: rgba(245, 241, 235, 0.5);
+  font-family: "Space Mono", monospace;
+  letter-spacing: 0px;
+  font-size: 12px;
+}
+
+.gallery-passcode-input:focus {
+  background: rgba(245, 241, 235, 0.1);
+  border-color: #f5f1eb;
+}
+
+/* Kontrole i dugmad u overlay-u */
+.gallery-overlay-buttons {
+  display: flex;
+  gap: 10px;
+  width: 85%;
+  max-width: 240px;
+}
+
+.gallery-btn-unlock,
+.gallery-btn-cancel {
+  flex: 1;
+  padding: 8px 0;
+  font-family: "Space Mono", monospace;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+/* Primarno dugme - Unlock */
+.gallery-btn-unlock {
+  background: #f5f1eb;
+  color: #282828;
+  border: 1px solid #f5f1eb;
+}
+
+.gallery-btn-unlock:hover {
+  background: transparent;
+  color: #f5f1eb;
+}
+
+.gallery-btn-unlock:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Sekundarno dugme - Cancel */
+.gallery-btn-cancel {
+  background: transparent;
+  color: #f5f1eb;
+  border: 1px solid rgba(245, 241, 235, 0.4);
+}
+
+.gallery-btn-cancel:hover {
+  border-color: #f5f1eb;
+  background: rgba(245, 241, 235, 0.1);
+}
+
+/* Poruka o grešci */
+.gallery-error-text {
+  font-family: "Cormorant", serif;
+  color: #ff8a8a;
+  font-size: 14px;
+  font-style: italic;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.gallery-skeleton {
+  background: linear-gradient(90deg, #eee 25%, #f5f5f5 50%, #eee 75%);
+  background-size: 200% 100%;
+  animation: skeleton-loading 1.5s infinite;
+  height: 280px; /* podesi da odgovara pravoj visini kartice */
+}
+
+@keyframes skeleton-loading {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
 @media screen and (max-width: 1280px) {
   .gallery-holder {
     width: 90%;

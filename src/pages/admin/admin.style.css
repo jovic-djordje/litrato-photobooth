@@ -1,0 +1,1240 @@
+/* ==========================================
+
+   LITRATO PHOTOBOOTH - ADMIN STYLES
+
+   ========================================== */
+
+/* ADMIN MAIN CONTAINER */
+
+.admin-holder {
+  display: flex;
+
+  justify-content: flex-start;
+
+  align-items: flex-start;
+
+  background-color: #f5f1eb; /* Litrato toplije bijela pozadina */
+
+  color: #282828;
+
+  min-height: 100vh;
+}
+
+/* SIDEBAR */
+
+.sideBar {
+  background-color: #f5f1eb;
+
+  max-width: 300px;
+
+  width: 100%;
+
+  height: 100vh;
+
+  border-right: 2px solid #282828;
+
+  transition: all ease-in-out 0.3s;
+
+  z-index: 1000;
+
+  position: sticky;
+
+  top: 0;
+
+  flex-shrink: 0;
+}
+
+.sideBar.closed {
+  max-width: 65px;
+}
+
+.sidebar-backdrop {
+  display: none;
+}
+
+.sideBar.closed p,
+.sideBar.closed .restaurant-name-text-holder {
+  display: none;
+}
+
+.sideBarHolder {
+  width: 90%;
+
+  margin: 0px auto;
+
+  padding: 24px 0px;
+
+  display: flex;
+
+  flex-direction: column;
+
+  justify-content: center;
+
+  align-items: flex-start;
+
+  gap: 30px;
+}
+
+.logo-icon {
+  width: 40px;
+
+  height: 40px;
+
+  object-fit: contain;
+}
+
+.restaurant-name-holder {
+  display: flex;
+
+  justify-content: flex-start;
+
+  align-items: center;
+
+  gap: 12px;
+
+  width: 100%;
+
+  border-bottom: 2px solid #282828;
+
+  padding-bottom: 20px;
+}
+
+.restaurant-name-text-holder {
+  display: flex;
+
+  flex-direction: column;
+
+  justify-content: center;
+
+  align-items: flex-start;
+
+  gap: 2px;
+}
+
+.restaurant-name-text-holder span {
+  color: #282828;
+
+  font-family: "Nanum Myeongjo", serif;
+
+  font-weight: 600;
+
+  font-size: 18px;
+
+  text-transform: uppercase;
+
+  letter-spacing: 0.5px;
+}
+
+.restaurant-name-text-holder p {
+  font-size: 13px;
+
+  font-family: "EB Garamond", serif;
+
+  font-style: italic;
+
+  color: #282828;
+
+  opacity: 0.8;
+}
+
+/* SIDEBAR NAVIGATION MENU */
+
+.menu-sideBar-holder {
+  display: flex;
+
+  flex-direction: column;
+
+  justify-content: center;
+
+  align-items: flex-start;
+
+  gap: 10px;
+
+  width: 100%;
+}
+
+.menu-sideBar-icon-holder {
+  display: flex;
+
+  justify-content: flex-start;
+
+  align-items: center;
+
+  gap: 12px;
+
+  width: 100%;
+
+  padding: 10px 12px;
+
+  border-radius: 0px; /* Litrato stil preferira oštrije ivice */
+
+  border: 1px solid transparent;
+
+  background: transparent;
+
+  transition: all 0.2s ease;
+
+  cursor: pointer;
+}
+
+.menu-sideBar-icon-holder:hover {
+  background-color: #282828;
+
+  color: #f5f1eb;
+}
+
+.menu-sideBar-icon-holder:hover .sideBar-icon,
+.menu-sideBar-icon-holder:hover p {
+  color: #f5f1eb !important;
+}
+
+.menu-sideBar-icon-holder.active {
+  background-color: #282828;
+
+  border: 1px solid #282828;
+}
+
+.menu-sideBar-icon-holder.active p,
+.menu-sideBar-icon-holder.active .sideBar-icon {
+  color: #f5f1eb !important;
+}
+
+.sideBar-icon {
+  width: 20px;
+
+  height: 20px;
+
+  color: #282828;
+
+  flex-shrink: 0;
+}
+
+.menu-sideBar-icon-holder p {
+  color: #282828;
+
+  font-family: "Space Mono", monospace;
+
+  font-size: 13px;
+
+  text-transform: uppercase;
+
+  letter-spacing: 0.5px;
+}
+
+/* ==========================================
+
+   DASHBOARD SECTION
+
+   ========================================== */
+
+.dash {
+  background-color: #f5f1eb;
+
+  width: 100%;
+
+  min-height: 100vh;
+
+  overflow: hidden;
+
+  padding-bottom: 40px;
+}
+
+.dash-holder {
+  display: flex;
+
+  flex-direction: column;
+
+  justify-content: center;
+
+  align-items: flex-start;
+
+  gap: 32px;
+}
+
+/* DASHBOARD HEADER */
+
+.dash-header {
+  display: flex;
+
+  justify-content: flex-start;
+
+  align-items: center;
+
+  width: 100%;
+
+  background-color: transparent;
+
+  border-bottom: 2px solid #282828;
+}
+
+.dash-header-holder {
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: center;
+
+  gap: 20px;
+
+  padding: 24px 0px;
+
+  width: 95%;
+
+  margin: 0px auto;
+}
+
+.dash-header-icon {
+  width: 22px;
+
+  height: 22px;
+
+  color: #282828;
+
+  cursor: pointer;
+
+  transition: transform 0.2s ease;
+}
+
+.dash-header-icon:hover {
+  transform: scale(1.1);
+}
+
+.dash-header-text-holder {
+  display: flex;
+
+  justify-content: center;
+
+  align-items: center;
+
+  gap: 20px;
+}
+
+.dash-header-text {
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: flex-start;
+
+  justify-content: center;
+
+  gap: 2px;
+}
+
+.dash-header-text span {
+  font-family: "Nanum Myeongjo", serif;
+
+  font-weight: 600;
+
+  color: #282828;
+
+  font-size: 22px;
+
+  text-transform: uppercase;
+}
+
+.dash-header-text p {
+  font-family: "EB Garamond", serif;
+
+  font-style: italic;
+
+  font-size: 16px;
+
+  color: #282828;
+
+  opacity: 0.85;
+}
+
+/* DASHBOARD STATS CARDS */
+
+.dash-details {
+  width: 100%;
+}
+
+.dash-details-holder {
+  width: 95%;
+
+  margin: 0px auto;
+}
+
+.dash-carts-holder {
+  display: flex;
+
+  justify-content: center;
+
+  align-items: stretch;
+
+  gap: 20px;
+
+  width: 100%;
+}
+
+.dash-cart {
+  width: 100%;
+
+  padding: 24px 0px;
+
+  border: 2px solid #282828;
+
+  background-color: transparent;
+
+  transition: transform 0.2s ease;
+}
+
+.dash-cart:hover {
+  transform: translateY(-2px);
+}
+
+.dash-cart-width {
+  width: 88%;
+
+  margin: 0px auto;
+
+  display: flex;
+
+  flex-direction: column;
+
+  justify-content: space-between;
+
+  gap: 16px;
+}
+
+.dash-cart-heading {
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: center;
+}
+
+.dash-cart-heading p {
+  color: #282828;
+
+  font-family: "Nanum Myeongjo", serif;
+
+  font-weight: 600;
+
+  font-size: 16px;
+
+  text-transform: uppercase;
+}
+
+.dash-cart-icon-holder {
+  background-color: #282828;
+
+  width: 36px;
+
+  height: 36px;
+
+  display: flex;
+
+  justify-content: center;
+
+  align-items: center;
+
+  border-radius: 0px;
+}
+
+.dash-cart-icon {
+  color: #f5f1eb;
+
+  width: 18px;
+
+  height: 18px;
+}
+
+.dash-cart-info {
+  display: flex;
+
+  flex-direction: column;
+
+  justify-content: center;
+
+  align-items: flex-start;
+
+  gap: 4px;
+}
+
+.dash-cart-info span {
+  font-size: 32px;
+
+  font-family: "Space Mono", monospace;
+
+  font-weight: 700;
+
+  color: #282828;
+}
+
+.dash-cart-info p {
+  color: #282828;
+
+  font-family: "Cormorant", serif;
+
+  font-size: 16px;
+
+  opacity: 0.8;
+}
+
+/* ACTION BUTTONS */
+
+.dash-btns-holder {
+  width: 95%;
+
+  margin: 0px auto;
+
+  display: flex;
+
+  justify-content: flex-start;
+
+  align-items: center;
+
+  gap: 16px;
+
+  flex-wrap: wrap;
+}
+
+.dash-btn {
+  display: flex;
+
+  justify-content: center;
+
+  align-items: center;
+
+  gap: 10px;
+
+  padding: 12px 20px;
+
+  border: 1px solid #282828 !important;
+
+  background-color: transparent !important;
+
+  color: #282828 !important;
+
+  font-family: "Space Mono", monospace;
+
+  font-size: 13px;
+
+  text-transform: uppercase;
+
+  letter-spacing: 0.5px;
+
+  cursor: pointer;
+
+  transition: all 0.2s ease;
+}
+
+.dash-btn:hover {
+  background-color: #282828 !important;
+
+  color: #f5f1eb !important;
+}
+
+.dash-btn-icon {
+  width: 16px;
+
+  height: 16px;
+}
+
+/* ==========================================
+
+   ADMIN TABLES & CONTENT CARDS
+
+   ========================================== */
+
+.admin-special-header-btn,
+.admin-menu-header-btn {
+  display: flex;
+
+  justify-content: center;
+
+  align-items: center;
+
+  gap: 10px;
+
+  padding: 10px 18px;
+
+  border: 1px solid #282828;
+
+  background-color: transparent;
+
+  color: #282828;
+
+  font-family: "Space Mono", monospace;
+
+  font-size: 13px;
+
+  text-transform: uppercase;
+
+  cursor: pointer;
+
+  transition: all 0.2s ease;
+}
+
+.admin-special-header-btn:hover,
+.admin-menu-header-btn:hover {
+  background-color: #282828;
+
+  color: #f5f1eb;
+}
+
+.admin-menu-cart {
+  background-color: transparent;
+
+  width: 95%;
+
+  margin: 0px auto;
+
+  padding: 24px;
+
+  border: 2px solid #282828;
+
+  max-height: 80vh;
+
+  overflow-y: auto;
+
+  overflow-x: auto;
+}
+
+.admin-menu-cart-text-holder p {
+  font-family: "Nanum Myeongjo", serif;
+
+  font-size: 20px;
+
+  font-weight: 600;
+
+  text-transform: uppercase;
+
+  color: #282828;
+}
+
+.admin-menu-cart-text-holder span {
+  font-family: "EB Garamond", serif;
+
+  font-style: italic;
+
+  font-size: 15px;
+
+  color: #282828;
+
+  opacity: 0.8;
+}
+
+.filter-select {
+  border: 1px solid #282828;
+
+  background-color: #f5f1eb;
+
+  padding: 8px 12px;
+
+  font-family: "Space Mono", monospace;
+
+  font-size: 13px;
+
+  color: #282828;
+
+  cursor: pointer;
+
+  outline: none;
+}
+
+/* TABLES */
+
+.table-responsive-wrapper {
+  width: 100%;
+
+  overflow-x: auto;
+
+  border: 1px solid #282828;
+
+  margin-top: 16px;
+}
+
+.menu-table {
+  width: 100%;
+
+  min-width: 600px;
+
+  border-collapse: collapse;
+
+  background-color: transparent;
+}
+
+.menu-table thead th {
+  font-family: "Space Mono", monospace;
+
+  font-size: 13px;
+
+  text-transform: uppercase;
+
+  font-weight: 600;
+
+  color: #282828;
+
+  border-bottom: 2px solid #282828;
+
+  text-align: left;
+
+  padding: 14px;
+
+  background-color: rgba(40, 40, 40, 0.04);
+}
+
+.menu-table td {
+  border-bottom: 1px solid #282828;
+
+  padding: 14px;
+
+  text-align: left;
+
+  font-family: "Cormorant", serif;
+
+  font-size: 16px;
+
+  color: #282828;
+}
+
+.dish-cell {
+  font-family: "Nanum Myeongjo", serif;
+
+  font-weight: 600;
+
+  font-size: 16px;
+}
+
+.td-price {
+  font-family: "Space Mono", monospace !important;
+
+  font-weight: 700;
+
+  color: #282828 !important;
+}
+
+.action-icons {
+  display: flex;
+
+  gap: 12px;
+
+  justify-content: flex-end;
+
+  align-items: center;
+
+  cursor: pointer;
+}
+
+.admin-special-text-holder {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* LIST ITEM CARDS (Događaji / Galerije) */
+
+.special-list-cart {
+  background-color: transparent;
+
+  border: 1px solid #282828;
+
+  display: flex;
+
+  width: 100%;
+
+  margin-bottom: 16px;
+}
+
+.special-list-img {
+  max-width: 260px;
+
+  width: 100%;
+
+  border-right: 1px solid #282828;
+
+  display: flex;
+
+  justify-content: center;
+
+  align-items: center;
+
+  min-height: 180px;
+
+  background-color: rgba(40, 40, 40, 0.05);
+}
+
+.special-list-image-real {
+  width: 100%;
+
+  height: 100%;
+
+  object-fit: cover;
+}
+
+.special-list-cart-width {
+  display: flex;
+
+  width: 100%;
+
+  padding: 20px;
+
+  justify-content: space-between;
+
+  align-items: center;
+
+  color: #282828;
+}
+
+.special-list-cart-title-holder h3 {
+  font-family: "Nanum Myeongjo", serif;
+
+  font-size: 18px;
+
+  font-weight: 600;
+
+  text-transform: uppercase;
+}
+
+.special-list-cart-text p {
+  font-family: "Cormorant", serif;
+
+  font-size: 16px;
+
+  line-height: 1.5;
+
+  color: #282828;
+}
+
+/* STATUS BADGES */
+
+.status-active {
+  background-color: #282828;
+
+  color: #f5f1eb;
+
+  font-family: "Space Mono", monospace;
+
+  font-size: 11px;
+
+  padding: 4px 8px;
+
+  text-transform: uppercase;
+}
+
+.status-inactive {
+  border: 1px solid #282828;
+
+  color: #282828;
+
+  font-family: "Space Mono", monospace;
+
+  font-size: 11px;
+
+  padding: 4px 8px;
+
+  text-transform: uppercase;
+}
+
+/* TOGGLE SWITCH */
+
+.special-checkbox {
+  display: none;
+}
+
+.special-list-cart-btn {
+  background-color: #e0dcd5;
+
+  border: 1px solid #282828;
+
+  width: 50px;
+
+  height: 24px;
+
+  cursor: pointer;
+
+  position: relative;
+
+  transition: 0.2s;
+}
+
+.special-list-cart-btn::before {
+  position: absolute;
+
+  content: "";
+
+  background-color: #282828;
+
+  width: 16px;
+
+  height: 16px;
+
+  top: 3px;
+
+  left: 3px;
+
+  transition: 0.2s;
+}
+
+.special-checkbox:checked + .special-list-cart-btn {
+  background-color: #282828;
+}
+
+.special-checkbox:checked + .special-list-cart-btn::before {
+  transform: translateX(24px);
+
+  background-color: #f5f1eb;
+}
+
+/* ==========================================
+   LITRATO ADMIN - GALLERIES & FORM STYLES
+   ========================================== */
+
+/* Glavni kontejner sekcije */
+.admin-content-section {
+  width: 95%;
+  margin: 0 auto;
+  padding-bottom: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.admin-header {
+  width: 100%;
+  padding: 24px 32px;
+  border-bottom: 2px solid #282828;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 6px;
+  background-color: transparent;
+  margin-bottom: 24px;
+}
+
+.admin-header-title-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.admin-header-icon {
+  font-size: 20px;
+  color: #282828;
+  display: flex;
+  align-items: center;
+}
+
+.admin-header h2 {
+  font-family: "Nanum Myeongjo", serif;
+  font-size: 22px;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: #282828;
+  letter-spacing: 0.5px;
+  margin: 0;
+  border: none; /* Uklanja staru donju liniju sa h2 */
+  padding: 0;
+}
+
+.admin-header p {
+  font-family: "EB Garamond", serif;
+  font-style: italic;
+  font-size: 15px;
+  color: #282828;
+  opacity: 0.8;
+  margin: 0;
+}
+
+/* FORMA KARTICA (Add New Gallery / Package) */
+.admin-form-card {
+  background-color: transparent;
+  border: 2px solid #282828;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  border-radius: 0px; /* Litrato nema zakrivljene uglove */
+}
+
+.admin-form-card h3 {
+  font-family: "Nanum Myeongjo", serif;
+  font-size: 18px;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: #282828;
+  margin-bottom: 8px;
+}
+
+/* Unosna polja u formi */
+.admin-form-card input,
+.admin-form-card textarea {
+  width: 100%;
+  background-color: #f5f1eb;
+  border: 1px solid #282828;
+  padding: 12px 14px;
+  font-family: "Space Mono", monospace;
+  font-size: 13px;
+  color: #282828;
+  outline: none;
+  border-radius: 0px;
+  transition: all 0.2s ease;
+}
+
+.admin-form-card input::placeholder,
+.admin-form-card textarea::placeholder {
+  color: #282828;
+  opacity: 0.5;
+}
+
+.admin-form-card input:focus,
+.admin-form-card textarea:focus {
+  background-color: #ffffff;
+  border-color: #282828;
+  box-shadow: inset 0 0 0 1px #282828;
+}
+
+/* Dugme za čuvanje forme */
+.admin-form-card button[type="submit"] {
+  align-self: flex-start;
+  padding: 12px 24px;
+  border: 1px solid #282828;
+  background-color: transparent;
+  color: #282828;
+  font-family: "Space Mono", monospace;
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  border-radius: 0px;
+  transition: all 0.2s ease;
+  margin-top: 8px;
+  font-weight: 600;
+}
+
+.admin-form-card button[type="submit"]:hover {
+  background-color: #282828;
+  color: #f5f1eb;
+}
+
+/* KONTEJNER LISTE/TABELE (Existing Galleries) */
+.admin-list {
+  background-color: transparent;
+  border: 2px solid #282828;
+  padding: 24px;
+  overflow-x: auto;
+  border-radius: 0px;
+}
+
+.admin-list h3 {
+  font-family: "Nanum Myeongjo", serif;
+  font-size: 18px;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: #282828;
+  margin-bottom: 16px;
+}
+
+/* Tabela unutar admin-list kontejnera */
+.admin-list table {
+  width: 100%;
+  border-collapse: collapse;
+  border: 1px solid #282828;
+  background-color: transparent;
+}
+
+.admin-list table thead th {
+  font-family: "Space Mono", monospace;
+  font-size: 12px;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: #282828;
+  border-bottom: 2px solid #282828;
+  border-right: 1px solid #282828;
+  text-align: left;
+  padding: 14px;
+  background-color: rgba(40, 40, 40, 0.04);
+}
+
+.admin-list table thead th:last-child {
+  border-right: none;
+}
+
+.admin-list table tbody td {
+  border-bottom: 1px solid #282828;
+  border-right: 1px solid #282828;
+  padding: 14px;
+  text-align: left;
+  font-family: "Cormorant", serif;
+  font-size: 16px;
+  color: #282828;
+  vertical-align: middle;
+}
+
+.admin-list table tbody td:last-child {
+  border-right: none;
+}
+
+.admin-list table tbody tr:hover {
+  background-color: rgba(40, 40, 40, 0.03);
+}
+
+/* Elementi unutar tabele */
+.admin-list table strong {
+  font-family: "Nanum Myeongjo", serif;
+  font-weight: 600;
+  font-size: 15px;
+}
+
+.admin-list table img {
+  border: 1px solid #282828;
+  border-radius: 0px !important; /* Zamjena inline 4px radiusa u oštar */
+}
+
+.admin-list code {
+  font-family: "Space Mono", monospace;
+  font-size: 12px;
+  background-color: rgba(40, 40, 40, 0.08);
+  padding: 4px 8px;
+  border: 1px solid #282828;
+  color: #282828;
+  display: inline-block;
+}
+
+/* Action Delete dugme */
+.admin-list button {
+  padding: 8px 14px;
+  border: 1px solid #282828;
+  background-color: transparent;
+  color: #282828;
+  font-family: "Space Mono", monospace;
+  font-size: 12px;
+  text-transform: uppercase;
+  cursor: pointer;
+  border-radius: 0px;
+  transition: all 0.2s ease;
+  font-weight: 600;
+}
+
+.admin-list button:hover {
+  background-color: #282828;
+  color: #f5f1eb;
+}
+
+.status-pending {
+  background-color: #fff3cd;
+  color: #856404;
+  padding: 4px 10px;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+}
+
+.approve-review-icon {
+  color: #2ecc71;
+  cursor: pointer;
+}
+
+.approve-review-icon:hover {
+  color: #27ae60;
+}
+
+.reject-review-icon {
+  color: #e74c3c;
+  cursor: pointer;
+}
+
+.reject-review-icon:hover {
+  color: #c0392b;
+}
+
+/* ==========================================
+
+   RESPONSIVE (MOBILE)
+
+   ========================================== */
+
+@media screen and (max-width: 786px) {
+  .dash-carts-holder {
+    flex-direction: column;
+  }
+
+  .dash-btns-holder {
+    flex-direction: column;
+
+    align-items: stretch;
+  }
+
+  .dash-btn {
+    max-width: 100%;
+  }
+
+  .sideBar.closed {
+    width: 0px;
+
+    max-width: 0px;
+
+    overflow: hidden;
+
+    padding: 0;
+
+    border: none;
+  }
+
+  .sideBar.open {
+    max-width: 280px;
+
+    width: 100%;
+
+    position: fixed;
+
+    left: 0;
+
+    top: 0;
+
+    height: 100vh;
+
+    border-right: 2px solid #282828;
+
+    background-color: #f5f1eb;
+  }
+
+  .sidebar-backdrop {
+    display: block;
+
+    position: fixed;
+
+    top: 0;
+
+    left: 0;
+
+    width: 100vw;
+
+    height: 100vh;
+
+    background-color: rgba(40, 40, 40, 0.4);
+
+    z-index: 999;
+
+    backdrop-filter: blur(2px);
+  }
+
+  .special-list-cart {
+    flex-direction: column;
+  }
+
+  .special-list-img {
+    max-width: 100%;
+    border-right: none;
+    border-bottom: 1px solid #282828;
+    height: 180px;
+  }
+
+  .admin-content-section {
+    width: 100%;
+    padding: 0 12px 30px 12px;
+  }
+
+  .admin-form-card button[type="submit"] {
+    width: 100%;
+  }
+
+  .admin-list table {
+    min-width: 550px;
+  }
+}
