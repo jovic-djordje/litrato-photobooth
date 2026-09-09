@@ -2,13 +2,24 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { Logo } from "../../assets/images";
 import { Squeeze as Hamburger } from "hamburger-react";
+import ReviewModal from "./ReviewModal";
 import "./nav.style.css";
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [isReviewOpen, setIsReviewOpen] = useState(false);
 
   const closeMenu = () => {
     setIsOpen(false);
+  };
+
+  const openReviewModal = () => {
+    setIsOpen(false);
+    setIsReviewOpen(true);
+  };
+
+  const closeReviewModal = () => {
+    setIsReviewOpen(false);
   };
 
   useEffect(() => {
@@ -39,7 +50,7 @@ const Navigation = () => {
           <Logo className="logo" />
         </Link>
 
-        <button type="button" className="nav-btn">
+        <button type="button" className="nav-btn" onClick={openReviewModal}>
           Leave review
         </button>
       </div>
@@ -65,7 +76,11 @@ const Navigation = () => {
             Contact
           </Link>
 
-          <button type="button" className="nav-btn nav-btn-mobile">
+          <button
+            type="button"
+            className="nav-btn nav-btn-mobile"
+            onClick={openReviewModal}
+          >
             Leave review
           </button>
         </div>
@@ -90,6 +105,8 @@ const Navigation = () => {
           <a href="tel:+9709307157">Phone</a>
         </div>
       </nav>
+
+      <ReviewModal open={isReviewOpen} onClose={closeReviewModal} />
     </header>
   );
 };

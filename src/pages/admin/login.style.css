@@ -1,0 +1,112 @@
+/* ==========================================
+   LITRATO PHOTOBOOTH - LOGIN STYLES
+   ========================================== */
+
+.login-container {
+  height: 100vh;
+  width: 100%;
+  background-color: #f5f1eb; /* Litrato topla krem pozadina */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.login-card {
+  background-color: transparent;
+  border: 2px solid #282828;
+  padding: 48px 40px;
+  width: 100%;
+  max-width: 420px;
+  text-align: center;
+  color: #282828;
+  border-radius: 0px; /* Zaobljene uglove mijenjamo u ravne linije */
+}
+
+.login-card h2 {
+  font-family: "Nanum Myeongjo", serif;
+  font-size: 26px;
+  font-weight: 600;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+  letter-spacing: 0.5px;
+}
+
+.login-card p {
+  font-family: "EB Garamond", serif;
+  font-style: italic;
+  font-size: 16px;
+  color: #282828;
+  opacity: 0.8;
+  margin-bottom: 32px;
+}
+
+.input-group {
+  text-align: left;
+  margin-bottom: 20px;
+  width: 100%;
+}
+
+.input-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-family: "Space Mono", monospace;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: #282828;
+}
+
+.input-group input {
+  width: 100%;
+  padding: 12px 14px;
+  border-radius: 0px;
+  border: 1px solid #282828;
+  background-color: transparent;
+  color: #282828;
+  font-family: "Space Mono", monospace;
+  font-size: 14px;
+  outline: none;
+  transition: all 0.2s ease;
+}
+
+.input-group input:focus {
+  background-color: rgba(40, 40, 40, 0.04);
+  border-color: #282828;
+  box-shadow: inset 0 0 0 1px #282828;
+}
+
+.login-btn {
+  width: 100%;
+  padding: 14px;
+  background-color: transparent;
+  color: #282828;
+  border: 1px solid #282828;
+  border-radius: 0px;
+  font-family: "Space Mono", monospace;
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: all 0.2s ease;
+}
+
+.login-btn:hover {
+  background-color: #282828;
+  color: #f5f1eb;
+}
+
+.error-msg {
+  color: #c0392b;
+  font-family: "Space Mono", monospace;
+  font-size: 12px;
+  margin-bottom: 16px;
+}
+
+@media screen and (max-width: 480px) {
+  .login-card {
+    padding: 32px 20px;
+  }
+}

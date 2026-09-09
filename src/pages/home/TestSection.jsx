@@ -1,6 +1,42 @@
+import { useEffect, useState } from "react";
 import { Testimonial } from "../../assets/images";
+import { useLitratoStore } from "../../store/litratoStore";
+
+const defaultReview = {
+  comment:
+    "We booked them for our company holiday party and they exceeded every expectation. Professional, stylish, and so much fun",
+  clientname: "Daniel R.",
+};
 
 const TestSection = () => {
+  const publicReviews = useLitratoStore((state) => state.publicReviews) || [];
+  const fetchPublicReviews = useLitratoStore(
+    (state) => state.fetchPublicReviews,
+  );
+
+  const [activeIndex, setActiveIndex] = useState(0);
+
+  useEffect(() => {
+    if (fetchPublicReviews) fetchPublicReviews();
+  }, [fetchPublicReviews]);
+
+  const displayReviews =
+    publicReviews.length > 0 ? publicReviews : [defaultReview];
+
+  const handlePrevious = () => {
+    setActiveIndex((prev) =>
+      prev === 0 ? displayReviews.length - 1 : prev - 1,
+    );
+  };
+
+  const handleNext = () => {
+    setActiveIndex((prev) =>
+      prev === displayReviews.length - 1 ? 0 : prev + 1,
+    );
+  };
+
+  const current = displayReviews[activeIndex];
+
   return (
     <section className="test">
       <div className="test-holder">
@@ -9,17 +45,15 @@ const TestSection = () => {
             <div className="headings">
               <h4>testimonials</h4>
               <h2>What Our Clients Say</h2>
-              <p>
-                {" "}
-                “We booked them for our company holiday party and they exceeded
-                every expectation. Professional, stylish, and so much fun“
-              </p>
+              <p>&ldquo;{current.comment}&rdquo;</p>
             </div>
 
             <div className="client-info">
-              <p>— Daniel R.</p>
+              <p>— {current.clientname}</p>
+
               <div className="test-btn-holder">
-                <button>PREVIOUS</button> /<button>NEXT</button>
+                <button onClick={handlePrevious}>PREVIOUS</button> /
+                <button onClick={handleNext}>NEXT</button>
               </div>
             </div>
           </div>
@@ -27,7 +61,6 @@ const TestSection = () => {
 
         <div className="test-right-side">
           <div className="test-right-side-text">
-            {/*<h4>moments worth keeping</h4>*/}
             <Testimonial className="test-img" />
           </div>
         </div>
