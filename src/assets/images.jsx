@@ -70,11 +70,13 @@ const HeroTwo = ({ className }) => (
 const HeroOne = ({ className }) => (
   <img
     src={heroOne}
-    alt=""
+    alt="Litrato Photobooth"
     className={className}
     width={560}
     height={747}
-    {...imageProps}
+    loading="eager"
+    fetchPriority="high"
+    decoding="async"
   />
 );
 
