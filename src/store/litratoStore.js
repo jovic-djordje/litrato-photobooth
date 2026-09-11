@@ -83,11 +83,13 @@ export const useLitratoStore = create((set, get) => ({
     try {
       const { data, error } = await supabase
         .from("reviews")
-        .select("*")
+        .select("id, clientname, comment, created_at")
         .eq("status", "approved")
-        .order("created_at", { ascending: false });
+        .order("created_at", { ascending: false })
+        .limit(10);
 
       if (error) throw error;
+
       set({ publicReviews: data || [] });
     } catch (err) {
       console.error("Error fetching public reviews:", err);

@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Testimonial } from "../../assets/images";
 import { useLitratoStore } from "../../store/litratoStore";
 
@@ -9,6 +9,8 @@ const defaultReview = {
 };
 
 const TestSection = () => {
+  const sectionRef = useRef(null);
+
   const publicReviews = useLitratoStore((state) => state.publicReviews) || [];
   const fetchPublicReviews = useLitratoStore(
     (state) => state.fetchPublicReviews,
@@ -17,7 +19,25 @@ const TestSection = () => {
   const [activeIndex, setActiveIndex] = useState(0);
 
   useEffect(() => {
-    if (fetchPublicReviews) fetchPublicReviews();
+    const section = sectionRef.current;
+
+    if (!section) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          fetchPublicReviews();
+          observer.disconnect();
+        }
+      },
+      {
+        rootMargin: "300px",
+      },
+    );
+
+    observer.observe(section);
+
+    return () => observer.disconnect();
   }, [fetchPublicReviews]);
 
   const displayReviews =
@@ -35,10 +55,10 @@ const TestSection = () => {
     );
   };
 
-  const current = displayReviews[activeIndex];
+  const current = displayReviews[activeIndex] || defaultReview;
 
   return (
-    <section className="test">
+    <section ref={sectionRef} className="test">
       <div className="test-holder">
         <div className="test-left-side">
           <div className="test-text-holder">
@@ -52,8 +72,13 @@ const TestSection = () => {
               <p>— {current.clientname}</p>
 
               <div className="test-btn-holder">
-                <button onClick={handlePrevious}>PREVIOUS</button> /
-                <button onClick={handleNext}>NEXT</button>
+                <button type="button" onClick={handlePrevious}>
+                  PREVIOUS
+                </button>{" "}
+                /
+                <button type="button" onClick={handleNext}>
+                  NEXT
+                </button>
               </div>
             </div>
           </div>
