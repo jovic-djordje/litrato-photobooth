@@ -1012,6 +1012,28 @@
   color: #f5f1eb;
 }
 
+.admin-form-card button {
+  align-self: flex-start;
+  padding: 12px 24px;
+  border: 1px solid #282828;
+  background-color: transparent;
+  color: #282828;
+  font-family: "Space Mono", monospace;
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  border-radius: 0px;
+  transition: all 0.2s ease;
+  margin-top: 8px;
+  font-weight: 600;
+}
+
+.admin-form-card button:hover {
+  background-color: #282828;
+  color: #f5f1eb;
+}
+
 /* KONTEJNER LISTE/TABELE (Existing Galleries) */
 .admin-list {
   background-color: transparent;

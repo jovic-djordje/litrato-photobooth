@@ -1,11 +1,11 @@
 import React from "react";
 import { LuLayoutDashboard, LuImage, LuStar, LuBox } from "react-icons/lu";
-import { useLitratoStore } from "../../store/litratoStore";
+import { useAdminStore } from "../../store/adminStore";
 import "./admin.style.css";
 
 const SideBar = ({ setPage, page }) => {
-  const isOpen = useLitratoStore((state) => state.isSidebarOpen);
-  const toggleSidebar = useLitratoStore((state) => state.toggleSidebar);
+  const isOpen = useAdminStore((state) => state.isSidebarOpen);
+  const toggleSidebar = useAdminStore((state) => state.toggleSidebar);
 
   const navItems = [
     { id: "admin-dashboard", label: "Dashboard", icon: LuLayoutDashboard },

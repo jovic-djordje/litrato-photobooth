@@ -1,10 +1,10 @@
 import React, { useState } from "react";
-import { useLitratoStore } from "../../store/litratoStore";
+import { useAdminStore } from "../../store/adminStore";
 import { useNavigate } from "react-router-dom";
 import "./login.style.css";
 
 const Login = () => {
-  const login = useLitratoStore((state) => state.login);
+  const login = useAdminStore((state) => state.login);
   const navigate = useNavigate();
 
   const [email, setEmail] = useState("");

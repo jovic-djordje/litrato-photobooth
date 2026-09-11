@@ -10,18 +10,11 @@ import {
   Alert,
   CircularProgress,
 } from "@mui/material";
-import { useLitratoStore } from "../../store/litratoStore";
+import { usePublicStore } from "../../store/publicStore";
 
 const initialState = {
   clientName: "",
   comment: "",
-};
-
-const paperSx = {
-  backgroundColor: "#f5f1eb",
-  border: "2px solid #282828",
-  borderRadius: 0,
-  boxShadow: "none",
 };
 
 const titleSx = {
@@ -35,15 +28,6 @@ const titleSx = {
   alignItems: "center",
   borderBottom: "2px solid #282828",
   paddingBottom: "16px",
-};
-
-const subTextSx = {
-  fontFamily: "'EB Garamond', serif",
-  fontStyle: "italic",
-  textTransform: "lowercase",
-  fontSize: "clamp(15px, 2vw, 16px)",
-  color: "#282828",
-  marginTop: "4px",
 };
 
 const textFieldSx = {
@@ -115,7 +99,7 @@ const cancelBtnSx = {
 };
 
 const ReviewModal = ({ open, onClose }) => {
-  const submitReview = useLitratoStore((state) => state.submitReview);
+  const submitReview = usePublicStore((state) => state.submitReview);
 
   const [form, setForm] = useState(initialState);
   const [loading, setLoading] = useState(false);
@@ -175,7 +159,18 @@ const ReviewModal = ({ open, onClose }) => {
       <DialogTitle sx={titleSx}>
         <span>
           Leave a Review
-          <div style={subTextSx}>share your experience</div>
+          <div
+            style={{
+              fontFamily: "'EB Garamond', serif",
+              fontStyle: "italic",
+              textTransform: "lowercase",
+              fontSize: "clamp(15px, 2vw, 16px)",
+              color: "#282828",
+              marginTop: "4px",
+            }}
+          >
+            share your experience
+          </div>
         </span>
         <IconButton
           onClick={handleClose}

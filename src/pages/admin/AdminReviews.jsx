@@ -1,16 +1,14 @@
 import "./admin.style.css";
 import { LuPanelLeftDashed, LuTrash2, LuCheck, LuX } from "react-icons/lu";
-import { useLitratoStore } from "../../store/litratoStore";
+import { useAdminStore } from "../../store/adminStore";
 import { useEffect } from "react";
 
 const AdminReviews = () => {
-  const toggleSidebar = useLitratoStore((state) => state.toggleSidebar);
-  const fetchReviews = useLitratoStore((state) => state.fetchReviews);
-  const reviews = useLitratoStore((state) => state.reviews) || [];
-  const updateReviewStatus = useLitratoStore(
-    (state) => state.updateReviewStatus,
-  );
-  const deleteReview = useLitratoStore((state) => state.deleteReview);
+  const toggleSidebar = useAdminStore((state) => state.toggleSidebar);
+  const fetchReviews = useAdminStore((state) => state.fetchReviews);
+  const reviews = useAdminStore((state) => state.reviews) || [];
+  const updateReviewStatus = useAdminStore((state) => state.updateReviewStatus);
+  const deleteReview = useAdminStore((state) => state.deleteReview);
 
   useEffect(() => {
     if (fetchReviews) fetchReviews();

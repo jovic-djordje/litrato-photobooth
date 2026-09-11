@@ -1,20 +1,21 @@
 import "./admin.style.css";
-import { useLitratoStore } from "../../store/litratoStore";
+import { useAdminStore } from "../../store/adminStore";
+import { usePublicStore } from "../../store/publicStore";
 import { LuPanelLeftDashed, LuImage, LuStar, LuBox } from "react-icons/lu";
 import { FiLogOut } from "react-icons/fi";
 import { useEffect } from "react";
 
 const AdminDashboard = ({ setPage }) => {
-  const toggleSidebar = useLitratoStore((state) => state.toggleSidebar);
-  const logout = useLitratoStore((state) => state.logout);
+  const toggleSidebar = useAdminStore((state) => state.toggleSidebar);
+  const logout = useAdminStore((state) => state.logout);
 
-  const packages = useLitratoStore((state) => state.packages) || [];
-  const galleries = useLitratoStore((state) => state.galleries) || [];
-  const reviews = useLitratoStore((state) => state.reviews) || [];
+  const packages = usePublicStore((state) => state.packages) || [];
+  const galleries = useAdminStore((state) => state.galleries) || [];
+  const reviews = useAdminStore((state) => state.reviews) || [];
 
-  const fetchPackages = useLitratoStore((state) => state.fetchPackages);
-  const fetchGalleries = useLitratoStore((state) => state.fetchGalleries);
-  const fetchReviews = useLitratoStore((state) => state.fetchReviews);
+  const fetchPackages = usePublicStore((state) => state.fetchPackages);
+  const fetchGalleries = useAdminStore((state) => state.fetchGalleries);
+  const fetchReviews = useAdminStore((state) => state.fetchReviews);
 
   useEffect(() => {
     if (fetchPackages) fetchPackages();

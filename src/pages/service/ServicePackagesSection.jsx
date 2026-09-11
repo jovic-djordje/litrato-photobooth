@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { useLitratoStore } from "../../store/litratoStore";
+import { usePublicStore } from "../../store/publicStore";
 import {
   ServiceFourImg,
   ServiceOneImg,
@@ -9,8 +9,8 @@ import {
 } from "../../assets/images";
 
 const ServicePackagesSection = () => {
-  const packages = useLitratoStore((state) => state.packages) || [];
-  const fetchPackages = useLitratoStore((state) => state.fetchPackages);
+  const packages = usePublicStore((state) => state.packages) || [];
+  const fetchPackages = usePublicStore((state) => state.fetchPackages);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -37,11 +37,9 @@ const ServicePackagesSection = () => {
       <div className="packages-section-holder">
         <div className="packages-cart-holder">
           {loading ? (
-            <p
-              style={{ textAlign: "center", width: "100%", padding: "40px 0" }}
-            >
-              Učitavanje paketa...
-            </p>
+            Array.from({ length: 4 }).map((_, i) => (
+              <div className="service-cart-skeleton" key={i} />
+            ))
           ) : packages.length === 0 ? (
             <p
               style={{ textAlign: "center", width: "100%", padding: "40px 0" }}

@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from "react";
-import { useLitratoStore } from "../../store/litratoStore";
+import { useAdminStore } from "../../store/adminStore";
 import { LuPanelLeftDashed } from "react-icons/lu";
 
-// Prazno početno stanje forme
 const initialFormState = {
   title: "",
   date: "",
@@ -12,11 +11,11 @@ const initialFormState = {
 };
 
 const AdminGalleries = () => {
-  const toggleSidebar = useLitratoStore((state) => state.toggleSidebar);
-  const galleries = useLitratoStore((state) => state.galleries) || [];
-  const fetchGalleries = useLitratoStore((state) => state.fetchGalleries);
-  const addGallery = useLitratoStore((state) => state.addGallery);
-  const deleteGallery = useLitratoStore((state) => state.deleteGallery);
+  const toggleSidebar = useAdminStore((state) => state.toggleSidebar);
+  const galleries = useAdminStore((state) => state.galleries) || [];
+  const fetchGalleries = useAdminStore((state) => state.fetchGalleries);
+  const addGallery = useAdminStore((state) => state.addGallery);
+  const deleteGallery = useAdminStore((state) => state.deleteGallery);
 
   useEffect(() => {
     if (fetchGalleries) fetchGalleries();
@@ -25,7 +24,6 @@ const AdminGalleries = () => {
   const [form, setForm] = useState(initialFormState);
   const [loading, setLoading] = useState(false);
 
-  // Ispravan način ažuriranja stanja preko prev state-a
   const handleChange = (e) => {
     const { name, value } = e.target;
     setForm((prev) => ({
@@ -40,9 +38,7 @@ const AdminGalleries = () => {
 
     setLoading(true);
     try {
-      // Čekamo da Zustand upiše u bazu i osveži galerije
       await addGallery(form);
-      // OBAVEZNO resetovanje forme na potpuno nov prazan objekat
       setForm(initialFormState);
     } catch (err) {
       console.error("Greška pri dodavanju galerije:", err);
@@ -52,7 +48,7 @@ const AdminGalleries = () => {
   };
 
   const handleDelete = async (id) => {
-    if (window.confirm("Jeste li sigurni da želite obrisati ovu galeriju?")) {
+    if (window.confirm("Are you sure you want to delete this gallery?")) {
       await deleteGallery(id);
     }
   };

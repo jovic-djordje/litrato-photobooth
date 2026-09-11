@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useLitratoStore } from "../../store/litratoStore";
+import { usePublicStore } from "../../store/publicStore";
 import {
   GalleryOne,
   GalleryTwo,
@@ -9,12 +9,11 @@ import {
 import "./gallery.style.css";
 
 const GallerySection = () => {
-  // POVLAČIMO publicGalleries UMJESTO galleries
-  const galleries = useLitratoStore((state) => state.publicGalleries) || [];
-  const fetchPublicGalleries = useLitratoStore(
+  const galleries = usePublicStore((state) => state.publicGalleries) || [];
+  const fetchPublicGalleries = usePublicStore(
     (state) => state.fetchPublicGalleries,
   );
-  const verifyGalleryCode = useLitratoStore((state) => state.verifyGalleryCode);
+  const verifyGalleryCode = usePublicStore((state) => state.verifyGalleryCode);
   const [loading, setLoading] = useState(true);
 
   const [activeId, setActiveId] = useState(null);
@@ -93,7 +92,6 @@ const GallerySection = () => {
                   onClick={() => !isActive && openPrompt(gallery.id)}
                   style={{ cursor: "pointer" }}
                 >
-                  {/* WRAPPER OKO SLIKE KOJI DRŽI OVERLAY */}
                   <div className="gallery-img-wrapper">
                     {thumb ? (
                       <img

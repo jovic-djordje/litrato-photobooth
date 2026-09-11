@@ -199,6 +199,14 @@
   margin-left: 16px;
 }
 
+.service-cart-skeleton {
+  background: linear-gradient(90deg, #eee 25%, #f5f5f5 50%, #eee 75%);
+  background-size: 200% 100%;
+  animation: skeleton-loading 1.5s infinite;
+  height: 400px; /* podesi da odgovara pravoj visini .service-cart kartice */
+  border-radius: 8px; /* opciono, ako ti kartice imaju zaobljene ivice */
+}
+
 @media screen and (max-width: 1280px) {
   .packages-section-holder {
     width: 90%;

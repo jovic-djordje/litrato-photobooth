@@ -1,53 +1,84 @@
 import React, { useState, useEffect } from "react";
-import { useLitratoStore } from "../../store/litratoStore";
+import { useAdminStore } from "../../store/adminStore";
+import { usePublicStore } from "../../store/publicStore";
 import { LuPanelLeftDashed } from "react-icons/lu";
 
+const emptyForm = {
+  title: "",
+  investment: "",
+  text: "",
+  pointOne: "",
+  pointTwo: "",
+  pointThree: "",
+  btn: "INQUIRE",
+  imgUrl: "",
+};
+
 const AdminServices = () => {
-  // 1. DOHVATANJE STOJA (identično kao u Dashboard-u)
-  const toggleSidebar = useLitratoStore((state) => state.toggleSidebar);
-  const packages = useLitratoStore((state) => state.packages) || [];
-  const fetchPackages = useLitratoStore((state) => state.fetchPackages);
-  const addPackage = useLitratoStore((state) => state.addPackage);
-  const deletePackage = useLitratoStore((state) => state.deletePackage);
+  const toggleSidebar = useAdminStore((state) => state.toggleSidebar);
+  const packages = usePublicStore((state) => state.packages) || [];
+  const fetchPackages = usePublicStore((state) => state.fetchPackages);
+  const addPackage = useAdminStore((state) => state.addPackage);
+  const updatePackage = useAdminStore((state) => state.updatePackage);
+  const deletePackage = useAdminStore((state) => state.deletePackage);
 
   useEffect(() => {
     if (fetchPackages) fetchPackages();
   }, [fetchPackages]);
 
-  const [form, setForm] = useState({
-    title: "",
-    investment: "",
-    text: "",
-    pointOne: "",
-    pointTwo: "",
-    pointThree: "",
-    btn: "INQUIRE",
-    imgUrl: "",
-  });
+  const [form, setForm] = useState(emptyForm);
+  const [editingId, setEditingId] = useState(null);
+  const [saving, setSaving] = useState(false);
 
-  const handleSubmit = (e) => {
+  const isEditing = editingId !== null;
+
+  const startEdit = (item) => {
+    setEditingId(item.id || item._id);
+    setForm({
+      title: item.title || "",
+      investment: item.investment || "",
+      text: item.text || "",
+      pointOne: item.pointOne || item.point_one || "",
+      pointTwo: item.pointTwo || item.point_two || "",
+      pointThree: item.pointThree || item.point_three || "",
+      btn: item.btn || "INQUIRE",
+      imgUrl: item.imgUrl || item.img_url || item.image_url || "",
+    });
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
+  const cancelEdit = () => {
+    setEditingId(null);
+    setForm(emptyForm);
+  };
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (!form.title || !form.investment) return;
 
-    if (addPackage) {
-      addPackage(form);
+    setSaving(true);
+    try {
+      if (isEditing) {
+        await updatePackage(editingId, form);
+      } else {
+        await addPackage(form);
+      }
+      setEditingId(null);
+      setForm(emptyForm);
+    } catch (err) {
+      console.error("Greška pri čuvanju paketa:", err);
+    } finally {
+      setSaving(false);
     }
+  };
 
-    setForm({
-      title: "",
-      investment: "",
-      text: "",
-      pointOne: "",
-      pointTwo: "",
-      pointThree: "",
-      btn: "INQUIRE",
-      imgUrl: "",
-    });
+  const handleDelete = async (id) => {
+    if (id === editingId) cancelEdit();
+    if (deletePackage) await deletePackage(id);
   };
 
   return (
     <div className="admin-content-section">
-      {/* HEADER SA TOGGLE SIDEBAR IKONOM */}
       <div className="admin-header">
         <div className="admin-header-title-row">
           <LuPanelLeftDashed
@@ -61,7 +92,7 @@ const AdminServices = () => {
       </div>
 
       <form onSubmit={handleSubmit} className="admin-form-card">
-        <h3>Add New Package Card</h3>
+        <h3>{isEditing ? "Edit Package Card" : "Add New Package Card"}</h3>
 
         <input
           type="text"
@@ -122,7 +153,20 @@ const AdminServices = () => {
           onChange={(e) => setForm({ ...form, btn: e.target.value })}
         />
 
-        <button type="submit">Save Package Card</button>
+        <div style={{ display: "flex", gap: "10px" }}>
+          <button type="submit" disabled={saving}>
+            {saving
+              ? "Saving..."
+              : isEditing
+                ? "Update Package Card"
+                : "Save Package Card"}
+          </button>
+          {isEditing && (
+            <button type="button" onClick={cancelEdit} disabled={saving}>
+              Cancel
+            </button>
+          )}
+        </div>
       </form>
 
       <div className="admin-list">
@@ -145,56 +189,63 @@ const AdminServices = () => {
                 </td>
               </tr>
             ) : (
-              packages.map((item) => (
-                <tr key={item.id || item._id}>
-                  <td>
-                    {item.imgUrl ? (
-                      <img
-                        src={item.imgUrl}
-                        alt={item.title}
+              packages.map((item) => {
+                const itemId = item.id || item._id;
+                return (
+                  <tr
+                    key={itemId}
+                    style={
+                      editingId === itemId
+                        ? { outline: "2px solid #282828" }
+                        : undefined
+                    }
+                  >
+                    <td>
+                      {item.imgUrl ? (
+                        <img
+                          src={item.imgUrl}
+                          alt={item.title}
+                          style={{
+                            width: "50px",
+                            height: "50px",
+                            objectFit: "cover",
+                            borderRadius: "6px",
+                          }}
+                        />
+                      ) : (
+                        <span style={{ fontSize: "0.8rem", color: "#888" }}>
+                          No Image
+                        </span>
+                      )}
+                    </td>
+                    <td>
+                      <strong>{item.title}</strong>
+                    </td>
+                    <td>
+                      <code>{item.investment}</code>
+                    </td>
+                    <td>
+                      <ul
                         style={{
-                          width: "50px",
-                          height: "50px",
-                          objectFit: "cover",
-                          borderRadius: "6px",
+                          paddingLeft: "16px",
+                          margin: 0,
+                          fontSize: "0.85rem",
                         }}
-                      />
-                    ) : (
-                      <span style={{ fontSize: "0.8rem", color: "#888" }}>
-                        No Image
-                      </span>
-                    )}
-                  </td>
-                  <td>
-                    <strong>{item.title}</strong>
-                  </td>
-                  <td>
-                    <code>{item.investment}</code>
-                  </td>
-                  <td>
-                    <ul
-                      style={{
-                        paddingLeft: "16px",
-                        margin: 0,
-                        fontSize: "0.85rem",
-                      }}
-                    >
-                      {item.pointOne && <li>{item.pointOne}</li>}
-                      {item.pointTwo && <li>{item.pointTwo}</li>}
-                      {item.pointThree && <li>{item.pointThree}</li>}
-                    </ul>
-                  </td>
-                  <td>
-                    <button
-                      onClick={() =>
-                        deletePackage && deletePackage(item.id || item._id)
-                      }
-                    >
-                      Delete
-                    </button>
-                  </td>
-                </tr>
-              ))
+                      >
+                        {item.pointOne && <li>{item.pointOne}</li>}
+                        {item.pointTwo && <li>{item.pointTwo}</li>}
+                        {item.pointThree && <li>{item.pointThree}</li>}
+                      </ul>
+                    </td>
+                    <td style={{ display: "flex", gap: "8px" }}>
+                      <button onClick={() => startEdit(item)}>Edit</button>
+                      <button onClick={() => handleDelete(itemId)}>
+                        Delete
+                      </button>
+                    </td>
+                  </tr>
+                );
+              })
             )}
           </tbody>
         </table>

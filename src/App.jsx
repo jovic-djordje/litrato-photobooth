@@ -1,6 +1,5 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import { lazy, Suspense, useEffect } from "react";
-import { useLitratoStore } from "./store/litratoStore";
+import { lazy, Suspense } from "react";
 
 import Navigation from "./components/navigations/Navigation";
 import Footer from "./components/navigations/Footer";
@@ -11,8 +10,7 @@ import HomeService from "./pages/service/HomeService";
 import HomeGallery from "./pages/gallery/HomeGallery";
 import HomeContact from "./pages/contact/HomeContact";
 
-const AdminPanel = lazy(() => import("./pages/admin/AdminPanel"));
-const Login = lazy(() => import("./pages/admin/Login"));
+const AdminGate = lazy(() => import("./pages/admin/AdminGate"));
 
 function PageLoader() {
   return (
@@ -23,27 +21,19 @@ function PageLoader() {
 }
 
 function App() {
-  const user = useLitratoStore((state) => state.user);
-  const checkSession = useLitratoStore((state) => state.checkSession);
-
-  useEffect(() => {
-    checkSession();
-  }, [checkSession]);
-
   return (
     <Router>
       <ScrollToTop />
 
       <Suspense fallback={<PageLoader />}>
         <Routes>
+          {/* PUBLIC ROUTES */}
           <Route
             path="/"
             element={
               <>
                 <Navigation />
-                <main>
-                  <Home />
-                </main>
+                <Home />
                 <Footer />
               </>
             }
@@ -54,9 +44,7 @@ function App() {
             element={
               <>
                 <Navigation />
-                <main>
-                  <HomeService />
-                </main>
+                <HomeService />
                 <Footer />
               </>
             }
@@ -67,9 +55,7 @@ function App() {
             element={
               <>
                 <Navigation />
-                <main>
-                  <HomeGallery />
-                </main>
+                <HomeGallery />
                 <Footer />
               </>
             }
@@ -80,15 +66,14 @@ function App() {
             element={
               <>
                 <Navigation />
-                <main>
-                  <HomeContact />
-                </main>
+                <HomeContact />
                 <Footer />
               </>
             }
           />
 
-          <Route path="/admin" element={user ? <AdminPanel /> : <Login />} />
+          {/* ADMIN ROUTE */}
+          <Route path="/admin" element={<AdminGate />} />
         </Routes>
       </Suspense>
     </Router>

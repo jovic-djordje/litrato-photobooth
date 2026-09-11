@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { Testimonial } from "../../assets/images";
-import { useLitratoStore } from "../../store/litratoStore";
+import { usePublicStore } from "../../store/publicStore";
 
 const defaultReview = {
   comment:
@@ -11,8 +11,8 @@ const defaultReview = {
 const TestSection = () => {
   const sectionRef = useRef(null);
 
-  const publicReviews = useLitratoStore((state) => state.publicReviews) || [];
-  const fetchPublicReviews = useLitratoStore(
+  const publicReviews = usePublicStore((state) => state.publicReviews) || [];
+  const fetchPublicReviews = usePublicStore(
     (state) => state.fetchPublicReviews,
   );
 
