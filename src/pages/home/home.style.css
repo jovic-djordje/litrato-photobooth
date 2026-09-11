@@ -133,7 +133,7 @@
   text-align: center;
 }
 
-.service-text-holder h4 {
+.service-text-holder span {
   font-family: "EB Garamond";
   font-size: clamp(18px, 2vw, 24px);
   font-style: italic;
@@ -267,7 +267,7 @@
   width: 100%;
 }
 
-.headings h4 {
+.headings span {
   font-family: "EB Garamond";
   font-size: clamp(18px, 2vw, 24px);
   font-style: italic;
@@ -405,7 +405,7 @@
   border-left: none !important;
 }
 
-.booking-text-holder h4 {
+.booking-text-holder span {
   font-family: "Space Mono";
   font-size: clamp(16px, 2vw, 24px);
   text-transform: uppercase;

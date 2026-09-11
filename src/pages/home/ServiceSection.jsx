@@ -27,7 +27,7 @@ const ServiceSection = () => {
     <section className="service">
       <div className="service-section-holder">
         <div className="service-text-holder">
-          <h4>services</h4>
+          <span>services</span>
           <h2>Choose Your Experience</h2>
           <p>
             Thoughtfully designed photobooth packages for weddings, private

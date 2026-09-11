@@ -41,12 +41,12 @@ const BookingSection = ({ imageComponent: ImageComponent = BookingImg }) => {
         <div className="test-left-side">
           <div className="test-text-holder">
             <div className="headings">
-              <h4>process</h4>
+              <span>process</span>
               <h2>Your Booking Guide</h2>
             </div>
 
             <div className="booking-text-holder">
-              <h4>{active.step}</h4>
+              <span>{active.step}</span>
               <h3>{active.title}</h3>
               <p>{active.text}</p>
               <Link to="/contact" className="link">

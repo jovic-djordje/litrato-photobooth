@@ -43,7 +43,7 @@ const TestSection = () => {
         <div className="test-left-side">
           <div className="test-text-holder">
             <div className="headings">
-              <h4>testimonials</h4>
+              <span>testimonials</span>
               <h2>What Our Clients Say</h2>
               <p>&ldquo;{current.comment}&rdquo;</p>
             </div>

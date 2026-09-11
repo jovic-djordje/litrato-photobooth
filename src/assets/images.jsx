@@ -1,6 +1,6 @@
 import logo from "./logo.webp";
 import menuIcon from "./main-menu.png";
-import heroTwo from "./heroTwo.webp";
+const heroTwo = "/heroTwo.webp";
 import heroOne from "./heroOne.webp";
 import serviceOne from "./serviceOne.png";
 import serviceTwo from "./serviceTwo.png";
@@ -26,112 +26,90 @@ import serviceTwoImg from "./serviceTwo.webp";
 import serviceThreeImg from "./serviceThree.webp";
 import serviceFourImg from "./serviceFour.webp";
 
-/*
-  width/height = displayed size from PageSpeed report (already matches
-  the resized source files). Update these two numbers if you resize a
-  file differently later — keep the actual aspect ratio consistent.
-*/
-
-const Logo = ({ className }) => {
-  return (
-    <img
-      src={logo}
-      alt="logo"
-      className={className}
-      width={263}
-      height={82}
-      loading="lazy"
-      decoding="async"
-    />
-  );
+const imageProps = {
+  loading: "lazy",
+  decoding: "async",
 };
 
-const MenuIcon = ({ className }) => {
-  return (
-    <img
-      src={menuIcon}
-      alt=""
-      className={className}
-      width={32}
-      height={32}
-      loading="lazy"
-      decoding="async"
-    />
-  );
-};
+const Logo = ({ className }) => (
+  <img
+    src={logo}
+    alt="logo"
+    className={className}
+    width={263}
+    height={82}
+    {...imageProps}
+  />
+);
 
-// LCP candidates: load eagerly with high priority, never lazy
-const HeroTwo = ({ className }) => {
-  return (
-    <img
-      src={heroTwo}
-      alt=""
-      className={className}
-      width={560}
-      height={747}
-      loading="eager"
-      fetchPriority="high"
-      decoding="async"
-    />
-  );
-};
+const MenuIcon = ({ className }) => (
+  <img
+    src={menuIcon}
+    alt=""
+    className={className}
+    width={32}
+    height={32}
+    {...imageProps}
+  />
+);
 
-const HeroOne = ({ className }) => {
-  return (
-    <img
-      src={heroOne}
-      alt=""
-      className={className}
-      width={560}
-      height={747}
-      loading="eager"
-      fetchPriority="high"
-      decoding="async"
-    />
-  );
-};
+// Only the actual homepage LCP candidate should be eager/high priority.
+const HeroTwo = ({ className }) => (
+  <img
+    src={heroTwo}
+    alt=""
+    className={className}
+    width={560}
+    height={747}
+    loading="eager"
+    fetchPriority="high"
+    decoding="async"
+  />
+);
 
-const ServiceOne = ({ className }) => {
-  return (
-    <img
-      src={serviceOne}
-      alt="film reel icon"
-      className={className}
-      width={64}
-      height={64}
-      loading="lazy"
-      decoding="async"
-    />
-  );
-};
+const HeroOne = ({ className }) => (
+  <img
+    src={heroOne}
+    alt=""
+    className={className}
+    width={560}
+    height={747}
+    {...imageProps}
+  />
+);
 
-const ServiceTwo = ({ className }) => {
-  return (
-    <img
-      src={serviceTwo}
-      alt="photo gallery icon"
-      className={className}
-      width={64}
-      height={64}
-      loading="lazy"
-      decoding="async"
-    />
-  );
-};
+const ServiceOne = ({ className }) => (
+  <img
+    src={serviceOne}
+    alt="film reel icon"
+    className={className}
+    width={64}
+    height={64}
+    {...imageProps}
+  />
+);
 
-const ServiceThree = ({ className }) => {
-  return (
-    <img
-      src={serviceThree}
-      alt="gallery icon"
-      className={className}
-      width={64}
-      height={64}
-      loading="lazy"
-      decoding="async"
-    />
-  );
-};
+const ServiceTwo = ({ className }) => (
+  <img
+    src={serviceTwo}
+    alt="photo gallery icon"
+    className={className}
+    width={64}
+    height={64}
+    {...imageProps}
+  />
+);
+
+const ServiceThree = ({ className }) => (
+  <img
+    src={serviceThree}
+    alt="gallery icon"
+    className={className}
+    width={64}
+    height={64}
+    {...imageProps}
+  />
+);
 
 const Testimonial = ({ className }) => {
   return (
@@ -140,7 +118,7 @@ const Testimonial = ({ className }) => {
       alt=""
       className={className}
       width={560}
-      height={749}
+      height={842}
       loading="lazy"
       decoding="async"
     />
@@ -154,6 +132,7 @@ const LogoOne = ({ className }) => {
       alt="snowbunny logo"
       className={className}
       loading="lazy"
+      decoding="async"
     />
   );
 };
@@ -165,6 +144,7 @@ const LogoTwo = ({ className }) => {
       alt="st-regis logo"
       className={className}
       loading="lazy"
+      decoding="async"
     />
   );
 };
@@ -176,217 +156,123 @@ const BookingImg = ({ className }) => {
       alt=""
       className={className}
       width={560}
-      height={749}
+      height={842}
       loading="lazy"
       decoding="async"
     />
   );
 };
+const FooterOne = ({ className }) => (
+  <img
+    src={footerOne}
+    alt=""
+    className={className}
+    width={361}
+    height={541}
+    {...imageProps}
+  />
+);
 
-const FooterOne = ({ className }) => {
-  return (
-    <img
-      src={footerOne}
-      alt=""
-      className={className}
-      width={361}
-      height={541}
-      loading="lazy"
-      decoding="async"
-    />
-  );
-};
+const FooterTwo = ({ className }) => (
+  <img
+    src={footerTwo}
+    alt=""
+    className={className}
+    width={361}
+    height={541}
+    {...imageProps}
+  />
+);
 
-const FooterTwo = ({ className }) => {
-  return (
-    <img
-      src={footerTwo}
-      alt=""
-      className={className}
-      width={361}
-      height={541}
-      loading="lazy"
-      decoding="async"
-    />
-  );
-};
+const FooterThree = ({ className }) => (
+  <img
+    src={footerThree}
+    alt=""
+    className={className}
+    width={361}
+    height={542}
+    {...imageProps}
+  />
+);
 
-const FooterThree = ({ className }) => {
-  return (
-    <img
-      src={footerThree}
-      alt=""
-      className={className}
-      width={361}
-      height={542}
-      loading="lazy"
-      decoding="async"
-    />
-  );
-};
+const FooterFour = ({ className }) => (
+  <img
+    src={footerFour}
+    alt=""
+    className={className}
+    width={361}
+    height={641}
+    {...imageProps}
+  />
+);
 
-const FooterFour = ({ className }) => {
-  return (
-    <img
-      src={footerFour}
-      alt=""
-      className={className}
-      width={361}
-      height={641}
-      loading="lazy"
-      decoding="async"
-    />
-  );
-};
+const FooterFive = ({ className }) => (
+  <img
+    src={footerFive}
+    alt=""
+    className={className}
+    width={361}
+    height={541}
+    {...imageProps}
+  />
+);
 
-const FooterFive = ({ className }) => {
-  return (
-    <img
-      src={footerFive}
-      alt=""
-      className={className}
-      width={361}
-      height={541}
-      loading="lazy"
-      decoding="async"
-    />
-  );
-};
+const FooterSix = ({ className }) => (
+  <img
+    src={footerSix}
+    alt=""
+    className={className}
+    width={361}
+    height={541}
+    {...imageProps}
+  />
+);
 
-const FooterSix = ({ className }) => {
-  return (
-    <img
-      src={footerSix}
-      alt=""
-      className={className}
-      width={361}
-      height={541}
-      loading="lazy"
-      decoding="async"
-    />
-  );
-};
+const GalleryOne = ({ className }) => (
+  <img src={galleryOne} alt="" className={className} {...imageProps} />
+);
 
-const GalleryOne = ({ className }) => {
-  return (
-    <img
-      src={galleryOne}
-      alt=""
-      className={className}
-      loading="lazy"
-      decoding="async"
-    />
-  );
-};
+const GalleryTwo = ({ className }) => (
+  <img src={galleryTwo} alt="" className={className} {...imageProps} />
+);
 
-const GalleryTwo = ({ className }) => {
-  return (
-    <img
-      src={galleryTwo}
-      alt=""
-      className={className}
-      loading="lazy"
-      decoding="async"
-    />
-  );
-};
+const GalleryThree = ({ className }) => (
+  <img src={galleryThree} alt="" className={className} {...imageProps} />
+);
 
-const GalleryThree = ({ className }) => {
-  return (
-    <img
-      src={galleryThree}
-      alt=""
-      className={className}
-      loading="lazy"
-      decoding="async"
-    />
-  );
-};
+const GalleryFour = ({ className }) => (
+  <img src={galleryFour} alt="" className={className} {...imageProps} />
+);
 
-const GalleryFour = ({ className }) => {
-  return (
-    <img
-      src={galleryFour}
-      alt=""
-      className={className}
-      loading="lazy"
-      decoding="async"
-    />
-  );
-};
+const GalleryBooking = ({ className }) => (
+  <img src={galleryBooking} alt="" className={className} {...imageProps} />
+);
 
-const GalleryBooking = ({ className }) => {
-  return (
-    <img
-      src={galleryBooking}
-      alt=""
-      className={className}
-      loading="lazy"
-      decoding="async"
-    />
-  );
-};
+const ServiceHeroImg = ({ className }) => (
+  <img
+    src={serviceHeroImg}
+    alt=""
+    className={className}
+    loading="lazy"
+    decoding="async"
+  />
+);
 
-const ServiceHeroImg = ({ className }) => {
-  return (
-    <img
-      src={serviceHeroImg}
-      alt=""
-      className={className}
-      loading="eager"
-      fetchPriority="high"
-      decoding="async"
-    />
-  );
-};
+const ServiceOneImg = ({ className }) => (
+  <img src={serviceOneImg} alt="" className={className} {...imageProps} />
+);
 
-const ServiceOneImg = ({ className }) => {
-  return (
-    <img
-      src={serviceOneImg}
-      alt=""
-      className={className}
-      loading="lazy"
-      decoding="async"
-    />
-  );
-};
+const ServiceTwoImg = ({ className }) => (
+  <img src={serviceTwoImg} alt="" className={className} {...imageProps} />
+);
 
-const ServiceTwoImg = ({ className }) => {
-  return (
-    <img
-      src={serviceTwoImg}
-      alt=""
-      className={className}
-      loading="lazy"
-      decoding="async"
-    />
-  );
-};
+const ServiceThreeImg = ({ className }) => (
+  <img src={serviceThreeImg} alt="" className={className} {...imageProps} />
+);
 
-const ServiceThreeImg = ({ className }) => {
-  return (
-    <img
-      src={serviceThreeImg}
-      alt=""
-      className={className}
-      loading="lazy"
-      decoding="async"
-    />
-  );
-};
-
-const ServiceFourImg = ({ className }) => {
-  return (
-    <img
-      src={serviceFourImg}
-      alt=""
-      className={className}
-      loading="lazy"
-      decoding="async"
-    />
-  );
-};
+const ServiceFourImg = ({ className }) => (
+  <img src={serviceFourImg} alt="" className={className} {...imageProps} />
+);
 
 export {
   Logo,
