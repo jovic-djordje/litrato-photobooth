@@ -261,6 +261,8 @@
   height: 432px;
   border: 2px solid #282828;
   display: block;
+  object-fit: cover;
+  object-position: center;
 }
 
 .headings {

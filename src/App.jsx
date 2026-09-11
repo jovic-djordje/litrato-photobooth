@@ -27,13 +27,14 @@ function App() {
 
       <Suspense fallback={<PageLoader />}>
         <Routes>
-          {/* PUBLIC ROUTES */}
           <Route
             path="/"
             element={
               <>
                 <Navigation />
-                <Home />
+                <main>
+                  <Home />
+                </main>
                 <Footer />
               </>
             }
@@ -44,7 +45,9 @@ function App() {
             element={
               <>
                 <Navigation />
-                <HomeService />
+                <main>
+                  <HomeService />
+                </main>
                 <Footer />
               </>
             }
@@ -55,7 +58,9 @@ function App() {
             element={
               <>
                 <Navigation />
-                <HomeGallery />
+                <main>
+                  <HomeGallery />
+                </main>
                 <Footer />
               </>
             }
@@ -66,13 +71,14 @@ function App() {
             element={
               <>
                 <Navigation />
-                <HomeContact />
+                <main>
+                  <HomeContact />
+                </main>
                 <Footer />
               </>
             }
           />
 
-          {/* ADMIN ROUTE */}
           <Route path="/admin" element={<AdminGate />} />
         </Routes>
       </Suspense>
