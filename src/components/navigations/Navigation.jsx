@@ -1,9 +1,10 @@
-import { useEffect, useState } from "react";
+import { lazy, Suspense, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { Logo } from "../../assets/images";
 import { Squeeze as Hamburger } from "hamburger-react";
-import ReviewModal from "./ReviewModal";
 import "./nav.style.css";
+
+const ReviewModal = lazy(() => import("./ReviewModal"));
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -106,7 +107,11 @@ const Navigation = () => {
         </div>
       </nav>
 
-      <ReviewModal open={isReviewOpen} onClose={closeReviewModal} />
+      <Suspense fallback={null}>
+        {isReviewOpen && (
+          <ReviewModal open={isReviewOpen} onClose={closeReviewModal} />
+        )}
+      </Suspense>
     </header>
   );
 };
