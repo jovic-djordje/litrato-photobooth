@@ -110,7 +110,7 @@ const Footer = () => {
 
           <div className="links">
             <Link to="/terms" className="link">
-              TERMS &amp; PRIVACY
+              TERMS
             </Link>
 
             <Link

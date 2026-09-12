@@ -127,6 +127,31 @@ export const useAdminStore = create((set, get) => ({
     }
   },
 
+  updateGallery: async (id, updatedGallery) => {
+    try {
+      const { supabase } = await import("../library/supabase.js");
+      const payload = {
+        title: updatedGallery.title,
+        date: updatedGallery.date,
+        access_code: updatedGallery.accessCode,
+        external_url: updatedGallery.externalUrl,
+        thumbnail_url: updatedGallery.thumbnailUrl || null,
+      };
+
+      const { error } = await supabase
+        .from("galleries")
+        .update(payload)
+        .eq("id", id);
+
+      if (error) throw error;
+      await get().fetchGalleries();
+      return { success: true };
+    } catch (err) {
+      console.error("Error updating gallery:", err);
+      throw err;
+    }
+  },
+
   // PACKAGES / SERVICES — MUTACIJE (čitanje je u usePublicStore)
   addPackage: async (newPackage) => {
     try {

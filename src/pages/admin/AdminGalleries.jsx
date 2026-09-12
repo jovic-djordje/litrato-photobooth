@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useAdminStore } from "../../store/adminStore";
 import { LuPanelLeftDashed } from "react-icons/lu";
 
-const initialFormState = {
+const emptyForm = {
   title: "",
   date: "",
   accessCode: "",
@@ -15,14 +15,35 @@ const AdminGalleries = () => {
   const galleries = useAdminStore((state) => state.galleries) || [];
   const fetchGalleries = useAdminStore((state) => state.fetchGalleries);
   const addGallery = useAdminStore((state) => state.addGallery);
+  const updateGallery = useAdminStore((state) => state.updateGallery);
   const deleteGallery = useAdminStore((state) => state.deleteGallery);
 
   useEffect(() => {
     if (fetchGalleries) fetchGalleries();
   }, [fetchGalleries]);
 
-  const [form, setForm] = useState(initialFormState);
+  const [form, setForm] = useState(emptyForm);
+  const [editingId, setEditingId] = useState(null);
   const [loading, setLoading] = useState(false);
+
+  const isEditing = editingId !== null;
+
+  const startEdit = (item) => {
+    setEditingId(item.id);
+    setForm({
+      title: item.title || "",
+      date: item.date || "",
+      accessCode: item.accessCode || item.access_code || "",
+      externalUrl: item.externalUrl || item.external_url || "",
+      thumbnailUrl: item.thumbnailUrl || item.thumbnail_url || "",
+    });
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
+  const cancelEdit = () => {
+    setEditingId(null);
+    setForm(emptyForm);
+  };
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -38,17 +59,23 @@ const AdminGalleries = () => {
 
     setLoading(true);
     try {
-      await addGallery(form);
-      setForm(initialFormState);
+      if (isEditing) {
+        await updateGallery(editingId, form);
+      } else {
+        await addGallery(form);
+      }
+      setEditingId(null);
+      setForm(emptyForm);
     } catch (err) {
-      console.error("Greška pri dodavanju galerije:", err);
+      console.error("Greška pri čuvanju galerije:", err);
     } finally {
       setLoading(false);
     }
   };
 
   const handleDelete = async (id) => {
-    if (window.confirm("Are you sure you want to delete this gallery?")) {
+    if (window.confirm("Jeste li sigurni da želite obrisati ovu galeriju?")) {
+      if (id === editingId) cancelEdit();
       await deleteGallery(id);
     }
   };
@@ -68,7 +95,7 @@ const AdminGalleries = () => {
       </div>
 
       <form onSubmit={handleSubmit} className="admin-form-card">
-        <h3>Add New Gallery</h3>
+        <h3>{isEditing ? "Edit Gallery" : "Add New Gallery"}</h3>
         <input
           type="text"
           name="title"
@@ -108,9 +135,21 @@ const AdminGalleries = () => {
           onChange={handleChange}
           required
         />
-        <button type="submit" disabled={loading}>
-          {loading ? "Saving..." : "Save Gallery"}
-        </button>
+
+        <div style={{ display: "flex", gap: "10px" }}>
+          <button type="submit" disabled={loading}>
+            {loading
+              ? "Saving..."
+              : isEditing
+                ? "Update Gallery"
+                : "Save Gallery"}
+          </button>
+          {isEditing && (
+            <button type="button" onClick={cancelEdit} disabled={loading}>
+              Cancel
+            </button>
+          )}
+        </div>
       </form>
 
       <div className="admin-list">
@@ -136,7 +175,14 @@ const AdminGalleries = () => {
               galleries.map((item) => {
                 const thumb = item.thumbnailUrl || item.thumbnail_url;
                 return (
-                  <tr key={item.id}>
+                  <tr
+                    key={item.id}
+                    style={
+                      editingId === item.id
+                        ? { outline: "2px solid #282828" }
+                        : undefined
+                    }
+                  >
                     <td>
                       {thumb ? (
                         <img
@@ -162,7 +208,8 @@ const AdminGalleries = () => {
                     <td>
                       <code>{item.accessCode || item.access_code}</code>
                     </td>
-                    <td>
+                    <td style={{ display: "flex", gap: "8px" }}>
+                      <button onClick={() => startEdit(item)}>Edit</button>
                       <button onClick={() => handleDelete(item.id)}>
                         Delete
                       </button>

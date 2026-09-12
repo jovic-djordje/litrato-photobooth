@@ -9,6 +9,7 @@ const Home = lazy(() => import("./pages/home/Home"));
 const HomeService = lazy(() => import("./pages/service/HomeService"));
 const HomeGallery = lazy(() => import("./pages/gallery/HomeGallery"));
 const HomeContact = lazy(() => import("./pages/contact/HomeContact"));
+const Terms = lazy(() => import("./pages/terms/Terms"));
 const AdminGate = lazy(() => import("./pages/admin/AdminGate"));
 
 function PageLoader() {
@@ -72,6 +73,19 @@ function App() {
                 <Navigation />
                 <main>
                   <HomeContact />
+                </main>
+                <Footer />
+              </>
+            }
+          />
+
+          <Route
+            path="/terms"
+            element={
+              <>
+                <Navigation />
+                <main>
+                  <Terms />
                 </main>
                 <Footer />
               </>
