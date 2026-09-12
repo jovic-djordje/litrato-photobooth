@@ -1,5 +1,4 @@
 import { create } from "zustand";
-import { supabase } from "../library/supabase.js";
 import { usePublicStore } from "./publicStore.js";
 
 export const useAdminStore = create((set, get) => ({
@@ -19,6 +18,7 @@ export const useAdminStore = create((set, get) => ({
   // REVIEWS LOGIC (ADMIN)
   fetchReviews: async () => {
     try {
+      const { supabase } = await import("../library/supabase.js");
       const { data, error } = await supabase
         .from("reviews")
         .select("*")
@@ -33,6 +33,7 @@ export const useAdminStore = create((set, get) => ({
 
   updateReviewStatus: async (id, newStatus) => {
     try {
+      const { supabase } = await import("../library/supabase.js");
       const { error } = await supabase
         .from("reviews")
         .update({ status: newStatus })
@@ -49,6 +50,7 @@ export const useAdminStore = create((set, get) => ({
 
   deleteReview: async (id) => {
     try {
+      const { supabase } = await import("../library/supabase.js");
       const { error } = await supabase.from("reviews").delete().eq("id", id);
       if (error) throw error;
       await get().fetchReviews();
@@ -62,6 +64,7 @@ export const useAdminStore = create((set, get) => ({
   // GALLERIES LOGIC (ADMIN)
   fetchGalleries: async () => {
     try {
+      const { supabase } = await import("../library/supabase.js");
       const { data, error } = await supabase
         .from("galleries")
         .select("*")
@@ -76,6 +79,7 @@ export const useAdminStore = create((set, get) => ({
 
   addGallery: async (newGallery) => {
     try {
+      const { supabase } = await import("../library/supabase.js");
       const payload = {
         title: newGallery.title,
         date: newGallery.date,
@@ -108,6 +112,7 @@ export const useAdminStore = create((set, get) => ({
 
   deleteGallery: async (id) => {
     try {
+      const { supabase } = await import("../library/supabase.js");
       const { error } = await supabase.from("galleries").delete().eq("id", id);
       if (error) throw error;
 
@@ -125,6 +130,7 @@ export const useAdminStore = create((set, get) => ({
   // PACKAGES / SERVICES — MUTACIJE (čitanje je u usePublicStore)
   addPackage: async (newPackage) => {
     try {
+      const { supabase } = await import("../library/supabase.js");
       const payload = {
         title: newPackage.title,
         investment: newPackage.investment,
@@ -148,6 +154,7 @@ export const useAdminStore = create((set, get) => ({
 
   updatePackage: async (id, updatedPackage) => {
     try {
+      const { supabase } = await import("../library/supabase.js");
       const payload = {
         title: updatedPackage.title,
         investment: updatedPackage.investment,
@@ -174,6 +181,7 @@ export const useAdminStore = create((set, get) => ({
 
   deletePackage: async (id) => {
     try {
+      const { supabase } = await import("../library/supabase.js");
       const { error } = await supabase.from("specials").delete().eq("id", id);
       if (error) throw error;
       await usePublicStore.getState().fetchPackages();
@@ -187,6 +195,7 @@ export const useAdminStore = create((set, get) => ({
   // INQUIRIES LOGIC
   fetchInquiries: async () => {
     try {
+      const { supabase } = await import("../library/supabase.js");
       const { data, error } = await supabase
         .from("inquiries")
         .select("*")
@@ -203,6 +212,7 @@ export const useAdminStore = create((set, get) => ({
   user: null,
 
   login: async (email, password) => {
+    const { supabase } = await import("../library/supabase.js");
     const { data, error } = await supabase.auth.signInWithPassword({
       email,
       password,
@@ -214,6 +224,7 @@ export const useAdminStore = create((set, get) => ({
   },
 
   checkSession: async () => {
+    const { supabase } = await import("../library/supabase.js");
     const { data } = await supabase.auth.getSession();
     if (data?.session) {
       set({ user: data.session.user });
@@ -221,6 +232,7 @@ export const useAdminStore = create((set, get) => ({
   },
 
   logout: async () => {
+    const { supabase } = await import("../library/supabase.js");
     await supabase.auth.signOut();
     set({ user: null });
   },

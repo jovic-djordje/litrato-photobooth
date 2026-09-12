@@ -1,5 +1,4 @@
 import { create } from "zustand";
-import { supabase } from "../library/supabase.js";
 
 export const usePublicStore = create((set) => ({
   publicReviews: [],
@@ -8,6 +7,7 @@ export const usePublicStore = create((set) => ({
 
   fetchPublicReviews: async () => {
     try {
+      const { supabase } = await import("../library/supabase.js");
       const { data, error } = await supabase
         .from("reviews")
         .select("id, clientname, comment, created_at")
@@ -24,6 +24,7 @@ export const usePublicStore = create((set) => ({
 
   fetchPublicGalleries: async () => {
     try {
+      const { supabase } = await import("../library/supabase.js");
       const { data, error } = await supabase
         .from("galleries_public")
         .select("*")
@@ -38,6 +39,7 @@ export const usePublicStore = create((set) => ({
 
   fetchPackages: async () => {
     try {
+      const { supabase } = await import("../library/supabase.js");
       const { data, error } = await supabase
         .from("specials")
         .select("*")
@@ -52,6 +54,7 @@ export const usePublicStore = create((set) => ({
 
   submitReview: async (newReview) => {
     try {
+      const { supabase } = await import("../library/supabase.js");
       const payload = {
         clientname: newReview.clientName,
         comment: newReview.comment,
@@ -68,6 +71,7 @@ export const usePublicStore = create((set) => ({
 
   verifyGalleryCode: async (galleryId, code) => {
     try {
+      const { supabase } = await import("../library/supabase.js");
       const { data, error } = await supabase.rpc("verify_gallery_code", {
         gallery_id: galleryId,
         input_code: code,
