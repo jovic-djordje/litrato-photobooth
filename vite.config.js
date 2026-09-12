@@ -32,6 +32,9 @@ function inlineCriticalCss() {
 
 export default defineConfig({
   plugins: [react(), inlineCriticalCss()],
+  build: {
+    cssCodeSplit: false,
+  },
   server: {
     host: true,
   },

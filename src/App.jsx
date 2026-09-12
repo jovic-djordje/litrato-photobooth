@@ -5,11 +5,10 @@ import Navigation from "./components/navigations/Navigation";
 import Footer from "./components/navigations/Footer";
 import ScrollToTop from "./ScrollToTop";
 
-import Home from "./pages/home/Home";
-import HomeService from "./pages/service/HomeService";
-import HomeGallery from "./pages/gallery/HomeGallery";
-import HomeContact from "./pages/contact/HomeContact";
-
+const Home = lazy(() => import("./pages/home/Home"));
+const HomeService = lazy(() => import("./pages/service/HomeService"));
+const HomeGallery = lazy(() => import("./pages/gallery/HomeGallery"));
+const HomeContact = lazy(() => import("./pages/contact/HomeContact"));
 const AdminGate = lazy(() => import("./pages/admin/AdminGate"));
 
 function PageLoader() {
