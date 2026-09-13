@@ -67,14 +67,14 @@ const AdminGalleries = () => {
       setEditingId(null);
       setForm(emptyForm);
     } catch (err) {
-      console.error("Greška pri čuvanju galerije:", err);
+      console.error("Error saving gallery:", err);
     } finally {
       setLoading(false);
     }
   };
 
   const handleDelete = async (id) => {
-    if (window.confirm("Jeste li sigurni da želite obrisati ovu galeriju?")) {
+    if (window.confirm("Are you sure you want to delete this gallery?")) {
       if (id === editingId) cancelEdit();
       await deleteGallery(id);
     }

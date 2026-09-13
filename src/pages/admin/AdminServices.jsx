@@ -66,7 +66,7 @@ const AdminServices = () => {
       setEditingId(null);
       setForm(emptyForm);
     } catch (err) {
-      console.error("Greška pri čuvanju paketa:", err);
+      console.error("Error saving the package:", err);
     } finally {
       setSaving(false);
     }

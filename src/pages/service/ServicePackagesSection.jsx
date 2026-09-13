@@ -44,7 +44,8 @@ const ServicePackagesSection = () => {
             <p
               style={{ textAlign: "center", width: "100%", padding: "40px 0" }}
             >
-              Trenutno nema dostupnih paketa. Dodajte ih kroz Admin Panel.
+              There are currently no packages available. Add them through the
+              Admin Panel.
             </p>
           ) : (
             packages.map((cart, index) => {
