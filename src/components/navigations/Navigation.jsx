@@ -1,5 +1,5 @@
 import { lazy, Suspense, useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Logo } from "../../assets/images";
 import { Squeeze as Hamburger } from "hamburger-react";
 import "./nav.style.css";
@@ -9,6 +9,8 @@ const ReviewModal = lazy(() => import("./ReviewModal"));
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isReviewOpen, setIsReviewOpen] = useState(false);
+  const location = useLocation();
+  const navigate = useNavigate();
 
   const closeMenu = () => {
     setIsOpen(false);
@@ -21,7 +23,16 @@ const Navigation = () => {
 
   const closeReviewModal = () => {
     setIsReviewOpen(false);
+    if (location.pathname === "/leave-review") {
+      navigate("/", { replace: true });
+    }
   };
+
+  useEffect(() => {
+    if (location.pathname === "/leave-review") {
+      setIsReviewOpen(true);
+    }
+  }, [location.pathname]);
 
   useEffect(() => {
     document.body.style.overflow = isOpen ? "hidden" : "";

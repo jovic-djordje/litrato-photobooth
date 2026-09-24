@@ -92,6 +92,19 @@ function App() {
             }
           />
 
+          <Route
+            path="/leave-review"
+            element={
+              <>
+                <Navigation />
+                <main>
+                  <Home />
+                </main>
+                <Footer />
+              </>
+            }
+          />
+
           <Route path="/admin" element={<AdminGate />} />
         </Routes>
       </Suspense>
